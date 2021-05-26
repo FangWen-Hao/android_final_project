@@ -8,9 +8,9 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -175,7 +175,7 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
 
             case PLACE_PICKER_REQUEST:
                 if (resultCode == RESULT_OK) {
-                    Place chosenPlace = PlacePicker.getPlace(this, data);
+                    Place chosenPlace = PlacePicker.getPlace(data,this);
                     //updateUI(chosenPlace);
 
                     // custom dialog

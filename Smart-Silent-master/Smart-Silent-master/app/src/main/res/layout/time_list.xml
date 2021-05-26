@@ -51,7 +51,7 @@
     <!--</RadioGroup>-->
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"
         android:id="@+id/rvtimeItems"
         android:layout_width="match_parent"

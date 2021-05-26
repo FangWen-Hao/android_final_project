@@ -2,7 +2,7 @@ package com.example.project.smartsilent;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.RadioButton;
 
 import java.util.List;

@@ -17,10 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Faojul Ahsan on 1/14/2017.
- */
-
 public class GeofenceController {
 
     private Context context;
@@ -42,11 +38,6 @@ public class GeofenceController {
 
     private List<GeofenceData> GeofenceDataToRemove;
 
-
-
-
-
-
     private static GeofenceController INSTANCE;
 
     public static GeofenceController getInstance() {
@@ -56,8 +47,6 @@ public class GeofenceController {
         return INSTANCE;
     }
 
-
-
     public void init(Context context) {
         this.context = context.getApplicationContext();
 
@@ -66,13 +55,9 @@ public class GeofenceController {
         GeofenceDataToRemove = new ArrayList<>();
         prefs = this.context.getSharedPreferences(Constants.SharedPrefs.Geofences, Context.MODE_PRIVATE);
 
-
         getGsonData();
 
-
-
     }
-
 
     public void saveGson(GeofenceData data) {
         this.context= context.getApplicationContext();
@@ -126,37 +111,6 @@ public class GeofenceController {
 
         Log.e(TAG,"i'm in remove block");
     }
-//
-//    public void removeAllGeofences(GeofenceControllerListener listener) {
-//        GeofenceDataToRemove = new ArrayList<>();
-//        for (GeofenceData mGeofence : mGeofenceData) {
-//            GeofenceDataToRemove.add(mGeofence);
-//        }
-//        this.listener = listener;
-//
-//        connectWithCallbacks(connectionRemoveListener);
-//    }
-
-    //will be deleted in main app while accumulated
-//    private void connectWithCallbacks(GoogleApiClient.ConnectionCallbacks callbacks) {
-//        googleApiClient = new GoogleApiClient.Builder(context)
-//                .addApi(LocationServices.API)
-//                .addConnectionCallbacks(callbacks)
-//                .addOnConnectionFailedListener(connectionFailedListener)
-//                .build();
-//        googleApiClient.connect();
-//    }
-
-//    private GeofencingRequest getAddGeofencingRequest() {
-//        List<GeofenceData> geofencesToAdd = new ArrayList<>();
-//        geofencesToAdd.add(geofenceToAdd);
-//        GeofencingRequest.Builder builder = new GeofencingRequest.Builder();
-//        builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);
-//        builder.addGeofences(geofencesToAdd);
-//        return builder.build();
-//    }
-
-
 
     private void removeSavedGeofences() {
         SharedPreferences.Editor editor = prefs.edit();
@@ -169,9 +123,6 @@ public class GeofenceController {
         }
         Log.e(TAG,"i'm in removesavedGeofences block");
 
-        // if (listener != null) {
-        //   listener.onGeofencesUpdated();
-        //}
     }
 
     private void sendError() {
