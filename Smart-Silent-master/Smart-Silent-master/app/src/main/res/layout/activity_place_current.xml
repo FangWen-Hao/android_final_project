@@ -25,7 +25,7 @@
             android:background="@drawable/button_selector_1"
             android:button="@null"
             android:gravity="center"
-            android:text="Pick Place"/>
+            android:text="@string/pick_place"/>
 
         <RadioButton
             android:checked="true"
@@ -36,11 +36,11 @@
             android:layout_margin="0dp"
             android:button="@null"
             android:gravity="center"
-            android:text="Current Place"/>
+            android:text="@string/current_place"/>
 
         <RadioButton
             android:id="@+id/btn3"
-            android:text="List"
+            android:text="@string/list"
             android:gravity="center"
             android:background="@drawable/button_selector_1"
             android:layout_width="120dp"
@@ -59,9 +59,9 @@
         android:fontFamily="sans-serif-condensed"
         android:layout_below="@+id/rdogrp"
         android:textColor="#009A9A"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_marginTop="20dp"
-        android:text="Latitude:"/>
+        android:text="@string/latitude"/>
 
 
     <TextView
@@ -71,7 +71,7 @@
         android:id="@+id/valLat"
         android:layout_below="@id/rdogrp"
         android:textColor="#009A9A"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@id/lattitude"
@@ -85,8 +85,8 @@
         android:layout_below="@+id/lattitude"
         android:layout_marginTop="20dp"
         android:textColor="#009A9A"
-        android:textSize="25dp"
-        android:text="Longitude:"/>
+        android:textSize="25sp"
+        android:text="@string/longitude"/>
 
 
     <TextView
@@ -99,11 +99,11 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@id/longitude"
         android:textColor="#009A9A"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:text="" />
 
     <Button
-        android:text="Start"
+        android:text="@string/start"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_below="@+id/valLong"
@@ -121,7 +121,7 @@
         android:background="#009A9A"
         android:textColor="#FFFFFF"
         android:fontFamily="sans-serif-thin"
-        android:text="Stop"
+        android:text="@string/stop"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginLeft="120dp"
@@ -141,7 +141,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="250dp"
         android:layout_marginLeft="80dp"
-        android:text="Select this Place"
+        android:text="@string/select_this_place"
         android:background="#009A9A"
         android:textColor="#FFFFFF"
         android:id="@+id/addGeofence"/>

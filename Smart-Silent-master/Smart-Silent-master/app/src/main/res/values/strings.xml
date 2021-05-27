@@ -78,11 +78,30 @@
     <string name="help_2">2. User can select locations as a silent zone using \'Select Place\' feature. There you can select your current place using \'Current Place\'. You can also select nearby places from map and search places worldwide using \'Pick Place\'.</string>
     <string name="help_3">3. Selected time and places will be placed in corresponding lists. You can show your selected places from there.</string>
     <string name="name1">方文昊</string>
-    <string name="id1">1085900XX</string>
+    <string name="id1">108590048</string>
     <string name="name2">李浩明</string>
-    <string name="id2">1085900XX</string>
+    <string name="id2">108590054</string>
     <string name="name3">鄭琳玲</string>
     <string name="id3">108590056</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="select_this_place">Select this Place</string>
+    <string name="select_place">Select Place</string>
+    <string name="pick_place">Pick Place</string>
+    <string name="current_place">Current Place</string>
+    <string name="list">List</string>
+    <string name="click_the_following_button_n_to_select_nearby_places_nor_search_places_worldwide">Click the following button \n to select nearby places \nor search places worldwide.</string>
+    <string name="todo">TODO</string>
+    <string name="longitude2">Longitude</string>
+    <string name="radius">Radius</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="smart_silent">Smart Silent</string>
+    <string name="be_smart">Be Smart!</string>
+    <string name="please_navigate_through_sliding_navigation_drawer">Please navigate through sliding navigation drawer.</string>
+    <string name="silent_your_device_at_specific_n_places_and_time_automatically_using_nsmart_silent">Silent your device at specific \n places and time automatically using\nSMART SILENT.</string>
 
 
 </resources>

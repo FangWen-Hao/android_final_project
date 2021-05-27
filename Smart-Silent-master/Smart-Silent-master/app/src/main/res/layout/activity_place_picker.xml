@@ -12,18 +12,18 @@
         android:layout_height="wrap_content"
         android:textColor="#009A9A"
         android:layout_marginLeft="60dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_marginTop="100dp"
         android:fontFamily="sans-serif-thin"
         android:layout_gravity="center"
-        android:text=" Click the following button \n   to select nearby places \nor search places worldwide."/>
+        android:text="@string/click_the_following_button_n_to_select_nearby_places_nor_search_places_worldwide"/>
     <Button
         android:fontFamily="sans-serif-thin"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="250dp"
         android:layout_marginLeft="80dp"
-        android:text="Select Place"
+        android:text="@string/select_place"
         android:background="#009A9A"
         android:textColor="#FFFFFF"
         android:id="@+id/show_place_picker"/>
@@ -44,7 +44,7 @@
                     android:button="@null"
                     android:checked="true"
                     android:gravity="center"
-                    android:text="Pick Place"/>
+                    android:text="@string/pick_place"/>
 
                 <RadioButton
                     android:id="@+id/btn2"
@@ -54,11 +54,11 @@
                     android:layout_margin="0dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Current Place"/>
+                    android:text="@string/current_place"/>
 
                 <RadioButton
                     android:id="@+id/btn3"
-                    android:text="List"
+                    android:text="@string/list"
                     android:gravity="center"
                     android:background="@drawable/button_selector_1"
                     android:layout_width="120dp"

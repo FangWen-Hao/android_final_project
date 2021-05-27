@@ -52,7 +52,6 @@
         android:debuggable="true"
         android:icon="@drawable/logo_n"
         android:label="@string/app_name"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
 
         <!--

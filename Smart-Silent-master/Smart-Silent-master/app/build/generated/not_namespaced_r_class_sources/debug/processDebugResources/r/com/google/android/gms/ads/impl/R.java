@@ -12,19 +12,19 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int offline_notification_text = 0x7f0e009b;
-        public static final int offline_notification_title = 0x7f0e009c;
-        public static final int offline_opt_in_confirm = 0x7f0e009d;
-        public static final int offline_opt_in_confirmation = 0x7f0e009e;
-        public static final int offline_opt_in_decline = 0x7f0e009f;
-        public static final int offline_opt_in_message = 0x7f0e00a0;
-        public static final int offline_opt_in_title = 0x7f0e00a1;
-        public static final int s1 = 0x7f0e00ab;
-        public static final int s2 = 0x7f0e00ac;
-        public static final int s3 = 0x7f0e00ad;
-        public static final int s4 = 0x7f0e00ae;
-        public static final int s5 = 0x7f0e00af;
-        public static final int s6 = 0x7f0e00b0;
-        public static final int s7 = 0x7f0e00b1;
+        public static final int offline_notification_text = 0x7f0e00a3;
+        public static final int offline_notification_title = 0x7f0e00a4;
+        public static final int offline_opt_in_confirm = 0x7f0e00a5;
+        public static final int offline_opt_in_confirmation = 0x7f0e00a6;
+        public static final int offline_opt_in_decline = 0x7f0e00a7;
+        public static final int offline_opt_in_message = 0x7f0e00a8;
+        public static final int offline_opt_in_title = 0x7f0e00a9;
+        public static final int s1 = 0x7f0e00b6;
+        public static final int s2 = 0x7f0e00b7;
+        public static final int s3 = 0x7f0e00b8;
+        public static final int s4 = 0x7f0e00b9;
+        public static final int s5 = 0x7f0e00ba;
+        public static final int s6 = 0x7f0e00bb;
+        public static final int s7 = 0x7f0e00bc;
     }
 }
