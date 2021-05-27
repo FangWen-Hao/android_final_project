@@ -4,6 +4,23 @@
             "outputFile": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-in\\values-in.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-in\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,297",
+                        "endColumns": "103,93",
+                        "endOffsets": "296,390"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "10879,10987",
+                        "endColumns": "107,97",
+                        "endOffsets": "10982,11080"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\f7f974df7b5606421bf421567db79696\\res\\values-in\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -71,23 +88,6 @@
                         "startOffsets": "4526",
                         "endColumns": "190",
                         "endOffsets": "4712"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-in\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,297",
-                        "endColumns": "103,93",
-                        "endOffsets": "296,390"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "10879,10987",
-                        "endColumns": "107,97",
-                        "endOffsets": "10982,11080"
                     }
                 },
                 {

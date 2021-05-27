@@ -4,23 +4,6 @@
             "outputFile": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt\\values-lt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-lt\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,296",
-                        "endColumns": "102,92",
-                        "endOffsets": "295,388"
-                    },
-                    "to": {
-                        "startLines": "115,116",
-                        "startColumns": "4,4",
-                        "startOffsets": "11283,11390",
-                        "endColumns": "106,96",
-                        "endOffsets": "11385,11482"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\524247ce952a40121e60fe0cbcc0015c\\res\\values-lt\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -86,6 +69,23 @@
                         "startOffsets": "12179",
                         "endColumns": "100",
                         "endOffsets": "12275"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-lt\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,296",
+                        "endColumns": "102,92",
+                        "endOffsets": "295,388"
+                    },
+                    "to": {
+                        "startLines": "115,116",
+                        "startColumns": "4,4",
+                        "startOffsets": "11283,11390",
+                        "endColumns": "106,96",
+                        "endOffsets": "11385,11482"
                     }
                 },
                 {

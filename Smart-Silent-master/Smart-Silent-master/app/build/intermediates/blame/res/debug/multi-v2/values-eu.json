@@ -38,6 +38,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-eu\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,296",
+                        "endColumns": "102,93",
+                        "endOffsets": "295,389"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "11147,11254",
+                        "endColumns": "106,97",
+                        "endOffsets": "11249,11347"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\c83d80df2c21d7e3eeea48a0cfb3b64c\\res\\values-eu\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -122,23 +139,6 @@
                         "endLines": "5,33,34,35,36,55,56,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,112",
                         "endColumns": "12,79,97,114,82,66,98,67,60,87,65,63,70,62,53,108,58,62,53,73,124,89,79,114,82,81,88,66,65,70,79,85,77,77,72,74,86,86,90,92,71,75,91,50,65,83,85,61,63,62,106,104,95,105,82",
                         "endOffsets": "275,3100,3198,3313,3396,6297,6396,6545,6606,6694,6760,6824,6895,6958,7012,7121,7180,7243,7297,7371,7496,7586,7666,7781,7864,7946,8035,8102,8168,8239,8319,8405,8483,8561,8634,8709,8796,8883,8974,9067,9139,9215,9307,9358,9424,9508,9594,9656,9720,9783,9890,9995,10091,10197,11142"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-eu\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,296",
-                        "endColumns": "102,93",
-                        "endOffsets": "295,389"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "11147,11254",
-                        "endColumns": "106,97",
-                        "endOffsets": "11249,11347"
                     }
                 }
             ]

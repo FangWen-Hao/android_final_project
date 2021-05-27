@@ -28,16 +28,11 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 
 public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks  {
 
-    private RadioButton buttonPlaceList;
-    private RadioButton buttonCurrentPlace;
-
 
     private final String TAG = "PLACEPICKER_EXERCISE";
 
     private final int RESOLVE_CONNECTION_REQUEST_CODE = 1000;
     private final int PLACE_PICKER_REQUEST = 1001;
-    private SharedPreferences mSharedPreferences;
-    private boolean mGeofencesAdded;
 
     private String name;
     private double latitude;
@@ -91,7 +86,7 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_place_picker, frameLayout);
 
-        buttonPlaceList = (RadioButton) findViewById(R.id.btn3);
+        RadioButton buttonPlaceList = (RadioButton) findViewById(R.id.btn3);
 
         buttonPlaceList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -101,7 +96,7 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
             }
         });
 
-        buttonCurrentPlace = (RadioButton) findViewById(R.id.btn2);
+        RadioButton buttonCurrentPlace = (RadioButton) findViewById(R.id.btn2);
 
         buttonCurrentPlace.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -137,9 +132,9 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
 
         //faojul
 
-        mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_NAME,
+        SharedPreferences mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_NAME,
                 MODE_PRIVATE);
-        mGeofencesAdded = mSharedPreferences.getBoolean(Constants.GEOFENCES_ADDED_KEY, false);
+        boolean mGeofencesAdded = mSharedPreferences.getBoolean(Constants.GEOFENCES_ADDED_KEY, false);
 
 
     }
@@ -166,6 +161,7 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
 
             case RESOLVE_CONNECTION_REQUEST_CODE:
@@ -176,7 +172,7 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
 
             case PLACE_PICKER_REQUEST:
                 if (resultCode == RESULT_OK) {
-                    Place chosenPlace = PlacePicker.getPlace(data,this);
+                    Place chosenPlace = PlacePicker.getPlace(data, this);
                     //updateUI(chosenPlace);
 
                     // custom dialog
@@ -189,17 +185,16 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
                     Button dialogButtonSave = (Button) dialog.findViewById(R.id.dialogButtonSave);
 
                     //faojul
-                    String sname= chosenPlace.getName().toString();
-                    if(sname!=null)
-                    {
+                    String sname = chosenPlace.getName().toString();
+                    if (sname != null) {
                         ((EditText) dialog.findViewById(R.id.dialogueName)).setText(sname);
                     }
                     String slat = String.valueOf(chosenPlace.getLatLng().latitude);
-                    if(slat!=null)
+                    if (slat != null)
                         ((EditText) dialog.findViewById(R.id.dialogueLatitude)).setText(slat);
                     latitude = chosenPlace.getLatLng().latitude;
                     String slong = String.valueOf(chosenPlace.getLatLng().longitude);
-                    if(slong!=null)
+                    if (slong != null)
                         ((EditText) dialog.findViewById(R.id.dialogueLongitude)).setText(slong);
                     longitude = chosenPlace.getLatLng().longitude;
                     //end
@@ -218,11 +213,11 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
                         public void onClick(View v) {
                             name = ((EditText) dialog.findViewById(R.id.dialogueName)).getText().toString();
 
-                            if(latitude==0 ) {
+                            if (latitude == 0) {
                                 String slat = ((EditText) dialog.findViewById(R.id.dialogueLatitude)).getText().toString();
                                 latitude = Double.parseDouble(slat);
                             }
-                            if(longitude==0) {
+                            if (longitude == 0) {
                                 String slong = ((EditText) dialog.findViewById(R.id.dialogueLongitude)).getText().toString();
                                 longitude = Double.parseDouble(slong);
                             }
@@ -231,8 +226,8 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
                             String sradius = ((EditText) dialog.findViewById(R.id.dialogueRadious)).getText().toString();
                             radius = Integer.parseInt(sradius);
                             GeofenceDataProvider.setvalue(name, latitude, longitude, radius);
-                        Intent intent = new Intent(PickPlace.this,PlaceCurrent.class);
-                        startActivity(intent);
+                            Intent intent = new Intent(PickPlace.this, PlaceCurrent.class);
+                            startActivity(intent);
 
 //                            PlaceCurrent pc = new PlaceCurrent();
 //                            pc.getApplicationContext();
@@ -250,7 +245,8 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
     }
 
     @Override
-    public void onRequestPermissionsResult(int reqCode, String[] perms, int[] results){
+    public void onRequestPermissionsResult(int reqCode, String[] perms, int[] results) {
+        super.onRequestPermissionsResult(reqCode, perms, results);
         if (reqCode == 1) {
             if (results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED) {
                 mHaveLocPerm = true;

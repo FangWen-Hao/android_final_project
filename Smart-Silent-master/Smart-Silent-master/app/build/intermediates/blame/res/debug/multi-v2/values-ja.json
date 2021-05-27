@@ -4,23 +4,6 @@
             "outputFile": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-ja\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,286",
-                        "endColumns": "92,87",
-                        "endOffsets": "285,373"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "9917,10014",
-                        "endColumns": "96,91",
-                        "endOffsets": "10009,10101"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\c83d80df2c21d7e3eeea48a0cfb3b64c\\res\\values-ja\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -139,6 +122,23 @@
                         "endLines": "5,33,34,35,36,55,56,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,112",
                         "endColumns": "12,68,84,103,75,62,83,63,57,80,63,54,58,56,53,92,55,56,53,65,99,75,80,91,61,61,78,66,65,69,69,76,63,70,67,62,78,62,79,81,71,70,71,47,63,74,76,61,63,62,85,83,80,84,72",
                         "endOffsets": "253,2908,2993,3097,3173,5684,5768,5904,5962,6043,6107,6162,6221,6278,6332,6425,6481,6538,6592,6658,6758,6834,6915,7007,7069,7131,7210,7277,7343,7413,7483,7560,7624,7695,7763,7826,7905,7968,8048,8130,8202,8273,8345,8393,8457,8532,8609,8671,8735,8798,8884,8968,9049,9134,9912"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-ja\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,286",
+                        "endColumns": "92,87",
+                        "endOffsets": "285,373"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "9917,10014",
+                        "endColumns": "96,91",
+                        "endOffsets": "10009,10101"
                     }
                 }
             ]

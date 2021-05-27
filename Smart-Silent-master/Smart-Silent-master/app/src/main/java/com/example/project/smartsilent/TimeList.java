@@ -11,11 +11,6 @@ public class TimeList extends BaseActivity {
 
     List<TimeDate> mTimeDataList;
 
-
-
-
-
-
     final Context context = this;
     private RadioButton buttonPlacePick;
     private RadioButton buttonCurrentPlace;

@@ -24,6 +24,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
 
         lintOptions {
             abortOnError false
@@ -68,12 +69,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.0'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    implementation 'com.google.android.gms:play-services-places:15.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     //Firebase
     implementation 'com.google.firebase:firebase-ads:20.1.0'
     implementation 'com.google.firebase:firebase-core:19.0.0'
-    implementation 'com.google.firebase:firebase-crash:16.2.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.0.0'
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
@@ -86,9 +88,5 @@ allprojects {
     repositories {
         google() //
         jcenter()
-        mavenCentral{
-            url "https://maven.google.com"
-            name 'Google'
-        }
     }
 }

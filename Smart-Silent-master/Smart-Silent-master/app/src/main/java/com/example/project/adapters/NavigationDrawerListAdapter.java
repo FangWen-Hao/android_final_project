@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class NavigationDrawerListAdapter extends BaseAdapter {
 
-	private Context _context;
-	private ArrayList<Items> _items;
+	private final Context _context;
+	private final ArrayList<Items> _items;
 
 	public NavigationDrawerListAdapter(Context _context, ArrayList<Items> _items) {
 		this._context = _context;

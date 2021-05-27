@@ -38,6 +38,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-es\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,297",
+                        "endColumns": "103,91",
+                        "endOffsets": "296,388"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "11237,11345",
+                        "endColumns": "107,95",
+                        "endOffsets": "11340,11436"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\f7f974df7b5606421bf421567db79696\\res\\values-es\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -71,23 +88,6 @@
                         "endLines": "5,33,34,35,36,55,56,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,112",
                         "endColumns": "12,86,103,121,80,64,94,80,62,88,68,62,73,63,55,117,57,61,55,79,138,88,81,110,80,79,89,66,65,78,81,87,73,76,69,78,83,83,91,99,73,80,101,52,66,92,88,61,63,62,112,92,103,93,82",
                         "endOffsets": "278,3096,3200,3322,3403,6292,6387,6543,6606,6695,6764,6827,6901,6965,7021,7139,7197,7259,7315,7395,7534,7623,7705,7816,7897,7977,8067,8134,8200,8279,8361,8449,8523,8600,8670,8749,8833,8917,9009,9109,9183,9264,9366,9419,9486,9579,9668,9730,9794,9857,9970,10063,10167,10261,11232"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-es\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,297",
-                        "endColumns": "103,91",
-                        "endOffsets": "296,388"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "11237,11345",
-                        "endColumns": "107,95",
-                        "endOffsets": "11340,11436"
                     }
                 },
                 {

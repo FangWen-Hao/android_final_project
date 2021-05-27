@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\524247ce952a40121e60fe0cbcc0015c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_tooltip.xml.flat",
         "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\593fc76feac2bdf882e2a2e71b0566a6\\res\\layout\\abc_tooltip.xml"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\524247ce952a40121e60fe0cbcc0015c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\animator_linear_indeterminate_line2_head_interpolator.xml.flat",
@@ -61,7 +61,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_place_autocomplete_item_prediction.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\layout\\place_autocomplete_item_prediction.xml"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\layout\\place_autocomplete_item_prediction.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_choice_chip_background_color.xml.flat",
@@ -353,7 +353,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_powered_by_google_dark.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxxhdpi-v4\\powered_by_google_dark.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxxhdpi-v4\\powered_by_google_dark.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
@@ -425,7 +425,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_places_ic_clear.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xhdpi-v4\\places_ic_clear.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xhdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
@@ -449,7 +449,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_places_ic_search.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxxhdpi-v4\\places_ic_search.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxxhdpi-v4\\places_ic_search.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_filled_background_color.xml.flat",
@@ -469,7 +469,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_places_ic_search.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xhdpi-v4\\places_ic_search.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xhdpi-v4\\places_ic_search.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
@@ -913,7 +913,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_powered_by_google_light.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-hdpi-v4\\powered_by_google_light.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-hdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
@@ -957,7 +957,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_place_autocomplete_progress.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\layout\\place_autocomplete_progress.xml"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\layout\\place_autocomplete_progress.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
@@ -1057,7 +1057,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_places_ic_clear.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxxhdpi-v4\\places_ic_clear.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxxhdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_dark.xml.flat",
@@ -1313,7 +1313,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_places_ic_search.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-mdpi-v4\\places_ic_search.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-mdpi-v4\\places_ic_search.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_textfield_search_material.xml.flat",
@@ -1353,7 +1353,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_place_autocomplete_fragment.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\layout-v21\\place_autocomplete_fragment.xml"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\layout-v21\\place_autocomplete_fragment.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
@@ -1425,7 +1425,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_place_autocomplete_item_powered_by_google.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\layout\\place_autocomplete_item_powered_by_google.xml"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\layout\\place_autocomplete_item_powered_by_google.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21_mtrl_bottom_sheet_slide_out.xml.flat",
@@ -1597,7 +1597,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_powered_by_google_light.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxxhdpi-v4\\powered_by_google_light.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxxhdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
@@ -1665,7 +1665,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_places_ic_search.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxhdpi-v4\\places_ic_search.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxhdpi-v4\\places_ic_search.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -1781,7 +1781,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_place_autocomplete_fragment.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\layout\\place_autocomplete_fragment.xml"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\layout\\place_autocomplete_fragment.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\color_material_slider_inactive_track_color.xml.flat",
@@ -1933,7 +1933,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_powered_by_google_dark.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-hdpi-v4\\powered_by_google_dark.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-hdpi-v4\\powered_by_google_dark.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_drawer_shadow.9.png.flat",
@@ -1945,7 +1945,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_places_ic_clear.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxhdpi-v4\\places_ic_clear.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxhdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_checkbox_checked_mtrl.xml.flat",
@@ -1969,7 +1969,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_powered_by_google_dark.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-mdpi-v4\\powered_by_google_dark.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-mdpi-v4\\powered_by_google_dark.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -2169,7 +2169,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_powered_by_google_light.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xhdpi-v4\\powered_by_google_light.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xhdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_activity_chooser_view_list_item.xml.flat",
@@ -2233,7 +2233,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_places_ic_clear.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-hdpi-v4\\places_ic_clear.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-hdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -2313,7 +2313,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_powered_by_google_light.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-mdpi-v4\\powered_by_google_light.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-mdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
@@ -2533,7 +2533,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_places_ic_search.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-hdpi-v4\\places_ic_search.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-hdpi-v4\\places_ic_search.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_navigation_drawer_base_layout.xml.flat",
@@ -2609,7 +2609,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_powered_by_google_light.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxhdpi-v4\\powered_by_google_light.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxhdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_material_ic_calendar_black_24dp.xml.flat",
@@ -2653,7 +2653,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_powered_by_google_dark.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xxhdpi-v4\\powered_by_google_dark.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xxhdpi-v4\\powered_by_google_dark.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_picker_dialog.xml.flat",
@@ -2685,7 +2685,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_powered_by_google_dark.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-xhdpi-v4\\powered_by_google_dark.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-xhdpi-v4\\powered_by_google_dark.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
@@ -2725,7 +2725,7 @@
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_places_ic_clear.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\drawable-mdpi-v4\\places_ic_clear.png"
+        "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\drawable-mdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_alert_select_dialog_singlechoice.xml.flat",

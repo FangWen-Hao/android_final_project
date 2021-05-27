@@ -58,13 +58,6 @@ public class TimeDateAdapter  extends RecyclerView.Adapter<TimeDateAdapter.ViewH
         holder.EndTime.setText(endtotal);
 
 
-
-
-
-
-
-
-
         holder.TimeDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,13 +72,6 @@ public class TimeDateAdapter  extends RecyclerView.Adapter<TimeDateAdapter.ViewH
                                 TimeController.getInstance().init(mContext);
                                 TimeController.getInstance().removetimeitem(timeitem);
                                 reload();
-
-
-
-
-
-
-
                             }
                         })
                         .setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {

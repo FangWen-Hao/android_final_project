@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 
 public class HelpActivity extends BaseActivity {
-	private ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#298171"));
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

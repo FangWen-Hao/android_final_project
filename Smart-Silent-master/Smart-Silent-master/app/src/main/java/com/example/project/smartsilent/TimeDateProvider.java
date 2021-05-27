@@ -14,22 +14,10 @@ public class TimeDateProvider {
     public static List<TimeDate> TimeList ;
     public static Map<String, TimeDate> TimedataMap;
 
-
-
-
-
-
-
-
     static {
         TimeList = new ArrayList<>();
         TimedataMap = new HashMap<>();
     }
-
-
-
-
-
 
 
     private static void addTimeData(TimeDate Data) {
@@ -39,10 +27,6 @@ public class TimeDateProvider {
          TimeController.getInstance().saveTimeGson(Data);
 
     }
-
-
-
-
 
     public static void settimevalue(int silentHour, int silentMinute,int unsilentHour,int unsilentMinute)
     {

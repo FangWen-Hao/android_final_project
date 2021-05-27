@@ -49,9 +49,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener, ResultCallback<Status> {
 
-    private RadioButton buttonPlacePick;
-    private RadioButton buttonPlaceList;
-
     //faojul
 
     //Define a request code to send to Google Play services
@@ -66,8 +63,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
     // for getting Continuous update
 
-    private final long LOC_UPDATE_INTERVAL = 10000; // 10s in milliseconds
-    private final long LOC_FASTEST_UPDATE = 5000; // 5s in milliseconds
     protected LocationRequest mLocRequest;
     protected Location mCurLocation;
 
@@ -75,8 +70,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
     protected static final int REQUEST_CHECK_SETTINGS = 0x1;
     protected LocationSettingsRequest mLocationSettingsRequest;
-
-    private boolean mHaveLocPerm = false;
 
     //geofence
     protected ArrayList<Geofence> mGeofenceList;
@@ -104,7 +97,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
 
     final Context context = this;
-    private Button buttonGeofence;
 
 
 
@@ -129,7 +121,7 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         //setContentView(R.layout.activity_place_current);
         getLayoutInflater().inflate(R.layout.activity_place_current, frameLayout);
 
-        buttonPlacePick = (RadioButton) findViewById(R.id.btn1);
+        RadioButton buttonPlacePick = (RadioButton) findViewById(R.id.btn1);
 
         buttonPlacePick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -139,7 +131,7 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
             }
         });
 
-        buttonPlaceList = (RadioButton) findViewById(R.id.btn3);
+        RadioButton buttonPlaceList = (RadioButton) findViewById(R.id.btn3);
 
         buttonPlaceList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -190,6 +182,10 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
                 .build();
 
         //setting Location update setting request
+        // 10s in milliseconds
+        long LOC_UPDATE_INTERVAL = 10000;
+        // 5s in milliseconds
+        long LOC_FASTEST_UPDATE = 5000;
         mLocRequest = new LocationRequest().setInterval(LOC_UPDATE_INTERVAL)
                 .setFastestInterval(LOC_FASTEST_UPDATE)
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -205,8 +201,7 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         //Add Geofence Dialogue
 
 //        GeofenceController.getInstance().init(context);
-        final Context Controllercontext = this;
-        buttonGeofence = (Button) findViewById(R.id.addGeofence);
+        Button buttonGeofence = (Button) findViewById(R.id.addGeofence);
 
         // add button listener
         buttonGeofence.setOnClickListener(new View.OnClickListener() {
@@ -387,11 +382,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
 */
 
-
-
-
-
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -459,7 +449,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
                 LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, mLocationSettingsRequest);
 
 
-
         result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
             @Override
             public void onResult(LocationSettingsResult result) {
@@ -495,28 +484,21 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // final LocationSettingsStates states = LocationSettingsStates.fromIntent(data);
-        switch (requestCode) {
-            case REQUEST_CHECK_SETTINGS:
-                switch (resultCode) {
-                    case Activity.RESULT_OK:
-                        // All required changes were successfully made
+        if (requestCode == REQUEST_CHECK_SETTINGS) {
+            switch (resultCode) {
+                case Activity.RESULT_OK:
+                    // All required changes were successfully made
 
-                        break;
-                    case Activity.RESULT_CANCELED:
-                        // The user was asked to change settings, but chose not to
+                    break;
+                case Activity.RESULT_CANCELED:
+                    // The user was asked to change settings, but chose not to
 
-                        break;
-                    default:
-                        break;
-                }
-                break;
+                    break;
+                default:
+                    break;
+            }
         }
     }
-
-
-    //check location setting end
-
-
 
 
     /**

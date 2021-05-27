@@ -4,23 +4,6 @@
             "outputFile": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ml\\values-ml.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-ml\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,301",
-                        "endColumns": "107,91",
-                        "endOffsets": "300,392"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "11346,11458",
-                        "endColumns": "111,95",
-                        "endOffsets": "11453,11549"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\524247ce952a40121e60fe0cbcc0015c\\res\\values-ml\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -122,6 +105,23 @@
                         "endLines": "5,33,34,35,36,55,56,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,112",
                         "endColumns": "12,86,93,109,91,64,98,65,59,101,75,57,77,64,53,116,63,63,53,79,133,85,88,105,84,87,94,66,65,78,81,90,75,76,76,70,106,79,96,99,73,80,104,57,66,90,91,61,63,62,102,115,104,115,83",
                         "endOffsets": "271,3107,3201,3311,3403,6318,6417,6556,6616,6718,6794,6852,6930,6995,7049,7166,7230,7294,7348,7428,7562,7648,7737,7843,7928,8016,8111,8178,8244,8323,8405,8496,8572,8649,8726,8797,8904,8984,9081,9181,9255,9336,9441,9499,9566,9657,9749,9811,9875,9938,10041,10157,10262,10378,11341"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-ml\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,301",
+                        "endColumns": "107,91",
+                        "endOffsets": "300,392"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "11346,11458",
+                        "endColumns": "111,95",
+                        "endOffsets": "11453,11549"
                     }
                 },
                 {

@@ -33,6 +33,11 @@ public class PlaceList extends BaseActivity {
 	final Context context = this;
 	private RadioButton buttonPlacePick;
 	private RadioButton buttonCurrentPlace;
+
+	public PlaceList(Button addbtn) {
+		this.addbtn = addbtn;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

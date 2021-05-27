@@ -72,6 +72,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-fr-rCA\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "197,304",
+                        "endColumns": "106,95",
+                        "endOffsets": "303,399"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "11372,11483",
+                        "endColumns": "110,99",
+                        "endOffsets": "11478,11578"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\1f40437bbdd3f2715dde98be9f95bf72\\res\\values-fr-rCA\\values-fr-rCA.xml",
                     "from": {
                         "startLines": "2",
@@ -105,23 +122,6 @@
                         "endLines": "5,33,34,35,36,55,56,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,112",
                         "endColumns": "12,81,99,121,84,65,96,79,61,91,73,60,78,63,53,115,58,61,53,81,128,91,83,113,78,80,92,66,65,78,80,90,71,77,74,71,96,76,97,97,77,80,99,56,65,82,86,61,63,62,101,106,96,108,88",
                         "endOffsets": "283,3115,3215,3337,3422,6389,6486,6641,6703,6795,6869,6930,7009,7073,7127,7243,7302,7364,7418,7500,7629,7721,7805,7919,7998,8079,8172,8239,8305,8384,8465,8556,8628,8706,8781,8853,8950,9027,9125,9223,9301,9382,9482,9539,9605,9688,9775,9837,9901,9964,10066,10173,10270,10379,11367"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-fr-rCA\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "197,304",
-                        "endColumns": "106,95",
-                        "endOffsets": "303,399"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "11372,11483",
-                        "endColumns": "110,99",
-                        "endOffsets": "11478,11578"
                     }
                 },
                 {

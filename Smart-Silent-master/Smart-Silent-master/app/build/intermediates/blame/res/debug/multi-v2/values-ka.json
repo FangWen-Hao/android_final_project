@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\ff6dee6e09383b59f0f40014fa47cacf\\res\\values-ka\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,298",
-                        "endColumns": "104,90",
-                        "endOffsets": "297,388"
-                    },
-                    "to": {
-                        "startLines": "113,114",
-                        "startColumns": "4,4",
-                        "startOffsets": "10986,11095",
-                        "endColumns": "108,94",
-                        "endOffsets": "11090,11185"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\c83d80df2c21d7e3eeea48a0cfb3b64c\\res\\values-ka\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -122,6 +105,23 @@
                         "endLines": "5,33,34,35,36,55,56,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,112",
                         "endColumns": "12,83,98,124,87,66,96,68,62,86,65,59,68,60,53,114,58,59,53,71,129,87,83,107,77,75,93,66,65,72,77,85,72,77,77,74,89,74,93,97,73,76,99,52,67,88,88,61,64,62,106,97,99,98,79",
                         "endOffsets": "273,3060,3159,3284,3372,6148,6245,6393,6456,6543,6609,6669,6738,6799,6853,6968,7027,7087,7141,7213,7343,7431,7515,7623,7701,7777,7871,7938,8004,8077,8155,8241,8314,8392,8470,8545,8635,8710,8804,8902,8976,9053,9153,9206,9274,9363,9452,9514,9579,9642,9749,9847,9947,10046,10981"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\2b575553b84dde9036962d261f9329ec\\res\\values-ka\\values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,298",
+                        "endColumns": "104,90",
+                        "endOffsets": "297,388"
+                    },
+                    "to": {
+                        "startLines": "113,114",
+                        "startColumns": "4,4",
+                        "startOffsets": "10986,11095",
+                        "endColumns": "108,94",
+                        "endOffsets": "11090,11185"
                     }
                 },
                 {
