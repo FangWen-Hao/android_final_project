@@ -24,6 +24,7 @@ MERGED from [com.google.android.gms:play-services-auth:19.0.0] C:\Users\Irene Zh
 MERGED from [com.google.firebase:firebase-ads:20.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\4fd0e5c2860d4926daefdee4a36827d9\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-crash:16.2.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\b3639f4432f63345ea203127e4218256\AndroidManifest.xml:17:1-32:12
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d73f66dc10f2faeeab2dfa3f9780d665\AndroidManifest.xml:17:1-42:12
+MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\fabfaeb466a7fba2dea5a1d34a29215a\AndroidManifest.xml:15:1-26:12
 MERGED from [com.google.firebase:firebase-database-collection:18.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3ae110e702c3c1e649d4a5c8555a2df4\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\fd9d6ffb8c2a95f1527dd03cc7ef2407\AndroidManifest.xml:2:1-7:12
@@ -33,7 +34,6 @@ MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Irene Z
 MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\524247ce952a40121e60fe0cbcc0015c\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\a1bc492610588bcad5d9fc8130af4ecc\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\102028aae6d62e444427af79adc6af63\AndroidManifest.xml:17:1-59:12
-MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\cc9630dcc6995962b8f029e58f316f6a\AndroidManifest.xml:17:1-46:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\9c9e6aa92dfbf3cd1a7c7f1558a57bd2\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f02cfdb3f411aa2bd09ca88c89a73b02\AndroidManifest.xml:17:1-31:12
@@ -208,6 +208,8 @@ MERGED from [com.google.firebase:firebase-crash:16.2.1] C:\Users\Irene Zheng\.gr
 MERGED from [com.google.firebase:firebase-crash:16.2.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\b3639f4432f63345ea203127e4218256\AndroidManifest.xml:24:5-30:19
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d73f66dc10f2faeeab2dfa3f9780d665\AndroidManifest.xml:26:5-40:19
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d73f66dc10f2faeeab2dfa3f9780d665\AndroidManifest.xml:26:5-40:19
+MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\fabfaeb466a7fba2dea5a1d34a29215a\AndroidManifest.xml:24:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\fabfaeb466a7fba2dea5a1d34a29215a\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\bbd3fc018a74786575b8348ac37dd7ac\AndroidManifest.xml:22:5-20
@@ -216,8 +218,6 @@ MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zh
 MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\524247ce952a40121e60fe0cbcc0015c\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\102028aae6d62e444427af79adc6af63\AndroidManifest.xml:28:5-57:19
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\102028aae6d62e444427af79adc6af63\AndroidManifest.xml:28:5-57:19
-MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\cc9630dcc6995962b8f029e58f316f6a\AndroidManifest.xml:28:5-44:19
 MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\cc9630dcc6995962b8f029e58f316f6a\AndroidManifest.xml:28:5-44:19
 MERGED from [com.google.android.gms:play-services-measurement-sdk:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\9c9e6aa92dfbf3cd1a7c7f1558a57bd2\AndroidManifest.xml:22:5-23:19
@@ -411,6 +411,8 @@ MERGED from [com.google.firebase:firebase-crash:16.2.1] C:\Users\Irene Zheng\.gr
 MERGED from [com.google.firebase:firebase-crash:16.2.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\b3639f4432f63345ea203127e4218256\AndroidManifest.xml:20:5-44
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d73f66dc10f2faeeab2dfa3f9780d665\AndroidManifest.xml:22:5-24:41
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d73f66dc10f2faeeab2dfa3f9780d665\AndroidManifest.xml:22:5-24:41
+MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\fabfaeb466a7fba2dea5a1d34a29215a\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\fabfaeb466a7fba2dea5a1d34a29215a\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database-collection:18.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3ae110e702c3c1e649d4a5c8555a2df4\AndroidManifest.xml:5:5-7:41
@@ -429,8 +431,6 @@ MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Use
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\a1bc492610588bcad5d9fc8130af4ecc\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\102028aae6d62e444427af79adc6af63\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\102028aae6d62e444427af79adc6af63\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-analytics:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f28ff15d2d6c14fcecd765e20966b45a\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\cc9630dcc6995962b8f029e58f316f6a\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\cc9630dcc6995962b8f029e58f316f6a\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-sdk:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\9c9e6aa92dfbf3cd1a7c7f1558a57bd2\AndroidManifest.xml:20:5-44
