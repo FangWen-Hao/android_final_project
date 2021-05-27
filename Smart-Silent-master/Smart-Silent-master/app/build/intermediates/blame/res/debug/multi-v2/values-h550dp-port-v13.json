@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\64a09d1ce1ba87304d968a371a16d96b\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,107",
+                        "endColumns": "51,76",
+                        "endOffsets": "102,179"
+                    }
+                }
+            ]
+        }
+    ]
+}

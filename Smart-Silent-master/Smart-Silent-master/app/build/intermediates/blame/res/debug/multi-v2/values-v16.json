@@ -4,17 +4,7 @@
             "outputFile": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\Smart-Silent-master\\Smart-Silent-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\5e063048061fddbc3818359dfbb94b6d\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\e5bdc12609068711ecdf73f497bb98eb\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\593fc76feac2bdf882e2a2e71b0566a6\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Irene Zheng\\.gradle\\caches\\transforms-2\\files-2.1\\1f40437bbdd3f2715dde98be9f95bf72\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

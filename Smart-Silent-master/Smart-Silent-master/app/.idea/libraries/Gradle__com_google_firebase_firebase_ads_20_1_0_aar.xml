@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-ads:20.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c6b895462037123503639bb2a4ff029a/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4fd0e5c2860d4926daefdee4a36827d9/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4fd0e5c2860d4926daefdee4a36827d9/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4fd0e5c2860d4926daefdee4a36827d9/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ads/20.1.0/c0d58b8efa926b2c607984c54fb3d274490badd1/firebase-ads-20.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
