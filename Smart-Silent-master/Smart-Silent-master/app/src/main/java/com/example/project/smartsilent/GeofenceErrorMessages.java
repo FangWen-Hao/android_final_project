@@ -5,9 +5,6 @@ import android.content.res.Resources;
 
 import com.google.android.gms.location.GeofenceStatusCodes;
 
-/**
- * Created by Faojul Ahsan on 1/14/2017.
- */
 
 public class GeofenceErrorMessages{
     /**

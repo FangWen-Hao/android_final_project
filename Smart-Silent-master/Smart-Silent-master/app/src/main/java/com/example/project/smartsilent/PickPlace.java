@@ -79,8 +79,6 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
         placeData.setText(str);*/
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,8 +107,6 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
 
-
-
         // Build the GoogleApiClient and connect to the Places API
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Places.GEO_DATA_API)
@@ -128,9 +124,6 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
                     }
                 }
         );
-
-
-        //faojul
 
         SharedPreferences mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_NAME,
                 MODE_PRIVATE);
@@ -184,18 +177,13 @@ public class PickPlace extends BaseActivity implements GoogleApiClient.OnConnect
                     Button dialogButtonCancel = (Button) dialog.findViewById(R.id.dialogButtonCancel);
                     Button dialogButtonSave = (Button) dialog.findViewById(R.id.dialogButtonSave);
 
-                    //faojul
                     String sname = chosenPlace.getName().toString();
-                    if (sname != null) {
-                        ((EditText) dialog.findViewById(R.id.dialogueName)).setText(sname);
-                    }
+                    ((EditText) dialog.findViewById(R.id.dialogueName)).setText(sname);
                     String slat = String.valueOf(chosenPlace.getLatLng().latitude);
-                    if (slat != null)
-                        ((EditText) dialog.findViewById(R.id.dialogueLatitude)).setText(slat);
+                    ((EditText) dialog.findViewById(R.id.dialogueLatitude)).setText(slat);
                     latitude = chosenPlace.getLatLng().latitude;
                     String slong = String.valueOf(chosenPlace.getLatLng().longitude);
-                    if (slong != null)
-                        ((EditText) dialog.findViewById(R.id.dialogueLongitude)).setText(slong);
+                    ((EditText) dialog.findViewById(R.id.dialogueLongitude)).setText(slong);
                     longitude = chosenPlace.getLatLng().longitude;
                     //end
 

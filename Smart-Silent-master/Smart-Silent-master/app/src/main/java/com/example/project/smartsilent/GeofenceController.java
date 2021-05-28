@@ -83,8 +83,6 @@ public class GeofenceController {
 
     }
 
-
-
     public void removeGeofences(GeofenceData mGeofencDataToRemove){ //,GeofenceControllerListener listener) {
         // this.GeofenceDataToRemove = GeofencDataToRemove;
         //this.listener = listener;

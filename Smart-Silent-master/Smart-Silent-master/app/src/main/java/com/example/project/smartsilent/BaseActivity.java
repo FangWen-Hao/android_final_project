@@ -55,10 +55,7 @@ public class BaseActivity extends AppCompatActivity {
 
 	private ActionBarDrawerToggle actionBarDrawerToggle;
 
-	private ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#009A9A"));
-
-
-	private GoogleApiClient client;
+	private final ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#009A9A"));
 
 
 	@Override
@@ -143,7 +140,7 @@ public class BaseActivity extends AppCompatActivity {
 			openActivity(0);
 		}
 
-		client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+		GoogleApiClient client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 	}
 
 

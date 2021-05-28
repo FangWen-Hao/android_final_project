@@ -22,15 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Faojul Ahsan on 1/14/2017.
- */
 
 public class GeofenceTransitionsIntentService  extends IntentService {
-
-
-
-
 
     protected static final String TAG = "GeofenceTransitionsIS";
 
@@ -48,7 +41,6 @@ public class GeofenceTransitionsIntentService  extends IntentService {
     public void onCreate() {
         super.onCreate();
     }
-
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -75,8 +67,6 @@ public class GeofenceTransitionsIntentService  extends IntentService {
 
             // Get the geofences that were triggered. A single event can trigger multiple geofences.
             List<Geofence> triggeringGeofences = geofencingEvent.getTriggeringGeofences();
-
-
 
 
 

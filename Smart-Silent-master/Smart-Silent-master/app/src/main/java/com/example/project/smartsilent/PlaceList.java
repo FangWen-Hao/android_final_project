@@ -18,24 +18,17 @@ public class PlaceList extends BaseActivity {
 
 
 	List<GeofenceData> mGeoFenceDataList;
-	private Button addbtn;
 	private String name;
 	protected double latitude;
 	protected double longitude;
-	protected String slatitude;
-	protected String slongitude;
-	protected String sradius;
 	protected int radius;
 
 
 
 
 	final Context context = this;
-	private RadioButton buttonPlacePick;
-	private RadioButton buttonCurrentPlace;
 
 	public PlaceList(Button addbtn) {
-		this.addbtn = addbtn;
 	}
 
 	@Override
@@ -45,7 +38,7 @@ public class PlaceList extends BaseActivity {
 		getLayoutInflater().inflate(R.layout.place_list, frameLayout);
 
 
-		buttonPlacePick = (RadioButton) findViewById(R.id.btn1);
+		RadioButton buttonPlacePick = (RadioButton) findViewById(R.id.btn1);
 
 		buttonPlacePick.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -55,7 +48,7 @@ public class PlaceList extends BaseActivity {
 			}
 		});
 
-		buttonCurrentPlace = (RadioButton) findViewById(R.id.btn2);
+		RadioButton buttonCurrentPlace = (RadioButton) findViewById(R.id.btn2);
 
 		buttonCurrentPlace.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {

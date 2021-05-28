@@ -31,16 +31,12 @@ public class TimeDateAdapter  extends RecyclerView.Adapter<TimeDateAdapter.ViewH
         this.mTimeDataList = items;
     }
 
-
-
-
     @Override
     public TimeDateAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
         View itemView = inflater.inflate(R.layout.time_list_item, parent, false);
-        TimeDateAdapter.ViewHolder viewHolder = new TimeDateAdapter.ViewHolder(itemView);
-        return viewHolder;
+        return new ViewHolder(itemView);
     }
 
     public void onBindViewHolder(TimeDateAdapter.ViewHolder holder, final int position) {
@@ -85,15 +81,6 @@ public class TimeDateAdapter  extends RecyclerView.Adapter<TimeDateAdapter.ViewH
             }
         });
 
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -103,10 +90,6 @@ public class TimeDateAdapter  extends RecyclerView.Adapter<TimeDateAdapter.ViewH
         myIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         mContext.startActivity(myIntent);
     }
-
-
-
-
 
     @Override
     public int getItemCount() {

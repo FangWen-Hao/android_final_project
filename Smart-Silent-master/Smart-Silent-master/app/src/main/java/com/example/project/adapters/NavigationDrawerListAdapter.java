@@ -25,7 +25,7 @@ public class NavigationDrawerListAdapter extends BaseAdapter {
 		this._items = _items;
 	}
 
-	private class ViewHolder {
+	private static class ViewHolder {
 		TextView itemName;
 		TextView itemDescription;
 		ImageView itemIcon;

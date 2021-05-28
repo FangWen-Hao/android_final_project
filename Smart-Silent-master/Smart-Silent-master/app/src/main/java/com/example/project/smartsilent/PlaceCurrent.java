@@ -49,8 +49,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener, ResultCallback<Status> {
 
-    //faojul
-
     //Define a request code to send to Google Play services
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "";
@@ -88,7 +86,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
     //Add Geofence Dialogue
 
-
     private String name;
     protected double latitude;
     protected double longitude;
@@ -98,9 +95,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
     final Context context = this;
 
-
-
-
   /* Sequence of code
   *Activity Lifecycle Methods : onCreate,onStart,onStop,onResume,onPause
   *GooglePlayServices Lifecycle methods : onConnected , onConnectionFailed, onConnectionSuspended,
@@ -108,7 +102,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
   *Other Function
   * Geofance code
    */
-
 
     /**
      * Activity Lifecycle methods
@@ -144,9 +137,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
 
-
-
-        //faojul
 
         //Geofence code start
         mAddGeofencesButton = (Button) findViewById(R.id.buttonstart);
@@ -341,7 +331,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
     }
 
-    //faojul
 
     /*  //Data Validation for Dialogue box
 
@@ -448,7 +437,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         PendingResult<LocationSettingsResult> result =
                 LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, mLocationSettingsRequest);
 
-
         result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
             @Override
             public void onResult(LocationSettingsResult result) {
@@ -537,8 +525,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         updateUI();
     }
 
-
-
     /**
      * Called when the user has been prompted at runtime to grant permissions
      */
@@ -566,7 +552,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
      * Retrieves the last known location. Assumes that permissions are granted.
      */
 
-
     protected void updateUI() {
         // take the lat and long of the current location object and add it to the list
         if (mCurLocation != null) {
@@ -593,10 +578,7 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         }
     }
 
-
-
     //Geofence code start here
-
 
 
     /**
@@ -729,11 +711,7 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         return PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-
-
-
     public void populateGeofenceList() {
-
 
         //Getting from SharedPreferences
 
@@ -767,9 +745,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
 
                     .build());
 
-
-
-
         }
         Log.e("TAG","GeofenceList is   " +mGeofenceList.toString());
 
@@ -786,11 +761,6 @@ public class PlaceCurrent extends BaseActivity implements GoogleApiClient.Connec
         }
     }
 
-
-
-
-    //new class added by abir . previously this was inside the addGeofencesButtonHandler
-    //as problem with toggle the add remove button. set result call back is removed
     public void addListtoGeofenceAfterSilentZoneadded()
     {
         if (!mGoogleApiClient.isConnected()) {

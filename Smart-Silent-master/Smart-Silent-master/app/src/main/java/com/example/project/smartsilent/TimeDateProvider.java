@@ -5,10 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Ashrin Tamim on 1/14/2017.
- */
-
 public class TimeDateProvider {
 
     public static List<TimeDate> TimeList ;

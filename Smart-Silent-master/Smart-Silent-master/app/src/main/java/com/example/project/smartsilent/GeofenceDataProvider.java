@@ -5,15 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Faojul Ahsan on 1/14/2017.
- */
-
-public class GeofenceDataProvider {
+    public class GeofenceDataProvider {
     public static List<GeofenceData> GeofencedataList;
     public static Map<String, GeofenceData> GeofencedataMap;
-
-
 
     //public static GeofenceController GC= new GeofenceController();
 
@@ -21,8 +15,6 @@ public class GeofenceDataProvider {
 
 
     //  prefs = this.context.getSharedPreferences(Constants.SharedPrefs.Geofences, Context.MODE_PRIVATE);
-
-
 
 
     static {
@@ -44,8 +36,6 @@ public class GeofenceDataProvider {
 //        GeofencedataList=GeofenceController.getInstance().getGsonData();
 //
 //    }
-
-
 
     public static void setvalue(String name,double Latitude,double Longitude,int radius)
     {

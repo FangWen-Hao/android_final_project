@@ -22,9 +22,6 @@ public class TimeActivity extends BaseActivity {
 
 	private TextView startTimeDisplay;
 	private TextView endTimeDisplay;
-	private Button startPickTime;
-	private Button endPickTime;
-	private Button showlist;
 
 
 	private static final int TIME_PICKER_END = 0;
@@ -42,8 +39,8 @@ public class TimeActivity extends BaseActivity {
 		getLayoutInflater().inflate(R.layout.time, frameLayout);
 
 		startTimeDisplay = (TextView) findViewById(R.id.silentTimeDisplay);
-		startPickTime = (Button) findViewById(R.id.silentPickTime);
-		showlist = (Button) findViewById(R.id.showlist);
+		Button startPickTime = (Button) findViewById(R.id.silentPickTime);
+		Button showlist = (Button) findViewById(R.id.showlist);
 
     /* add a click listener to the button   */
 		startPickTime.setOnClickListener(new View.OnClickListener() {
@@ -65,13 +62,10 @@ public class TimeActivity extends BaseActivity {
 		silentMinute = c.get(Calendar.MINUTE);
 		//from_day = c.get(Calendar.DAY_OF_MONTH);
 
-
 		updateStartDisplay();
 
-
-
 		endTimeDisplay = (TextView) findViewById(R.id.unsilentTimeDisplay);
-		endPickTime = (Button) findViewById(R.id.unsilentPickTime);
+		Button endPickTime = (Button) findViewById(R.id.unsilentPickTime);
 
 
 		endPickTime.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +73,6 @@ public class TimeActivity extends BaseActivity {
 				showDialog(TIME_PICKER_END);
 			}
 		});
-
 
 		final Calendar c1 = Calendar.getInstance();
 		unsilentHour = c1.get(Calendar.HOUR_OF_DAY);
@@ -93,9 +86,7 @@ public class TimeActivity extends BaseActivity {
 		mDrawerList.setItemChecked(position, true);
 		setTitle(listArray[position]);
 
-
 	}
-
 
 	private void updateEndDisplay() {
 
@@ -113,7 +104,6 @@ public class TimeActivity extends BaseActivity {
 			timeSet2 = "AM";
 		String minutes = " ";
 		if (unsilentMinute < 10) {
-			minutes = "0" + unsilentMinute;
 		}
 		endTimeDisplay.setText(
 				new StringBuilder()
@@ -153,7 +143,7 @@ public class TimeActivity extends BaseActivity {
 	}
 
 
-	private TimePickerDialog.OnTimeSetListener silentTimeListener =
+	private final TimePickerDialog.OnTimeSetListener silentTimeListener =
 			new TimePickerDialog.OnTimeSetListener() {
 
 				public void onTimeSet(TimePicker view, int hour,

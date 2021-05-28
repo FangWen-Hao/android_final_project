@@ -22,7 +22,7 @@ public class GeofenceDataAdapter extends RecyclerView.Adapter<GeofenceDataAdapte
     public static final String ITEM_ID_KEY = "item_id_key";
     public static final String ITEM_KEY = "item_key";
     private List<GeofenceData> mGeofenceDataList ;//Items;
-    private Context mContext;
+    private final Context mContext;
     private final String TAG = GeofenceController.class.getName();
 
 
@@ -54,8 +54,7 @@ public class GeofenceDataAdapter extends RecyclerView.Adapter<GeofenceDataAdapte
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
         View itemView = inflater.inflate(R.layout.list_item, parent, false);
-        ViewHolder viewHolder = new ViewHolder(itemView);
-        return viewHolder;
+        return new ViewHolder(itemView);
     }
 
     public void onBindViewHolder(GeofenceDataAdapter.ViewHolder holder, final int position) {
@@ -98,13 +97,6 @@ public class GeofenceDataAdapter extends RecyclerView.Adapter<GeofenceDataAdapte
                                 GeofenceController.getInstance().init(mContext);
                                 GeofenceController.getInstance().removeGeofences(Geofenceitem);
                                 reload();
-
-
-
-
-
-
-
                             }
                         })
                         .setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
@@ -118,15 +110,6 @@ public class GeofenceDataAdapter extends RecyclerView.Adapter<GeofenceDataAdapte
             }
         });
 
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -136,10 +119,6 @@ public class GeofenceDataAdapter extends RecyclerView.Adapter<GeofenceDataAdapte
         myIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         mContext.startActivity(myIntent);
     }
-
-
-
-
 
     @Override
     public int getItemCount() {
@@ -153,8 +132,6 @@ public class GeofenceDataAdapter extends RecyclerView.Adapter<GeofenceDataAdapte
     public interface AllGeofencesAdapterListener {
         void onDeleteTapped(GeofenceData mGeofence);
     }
-
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
