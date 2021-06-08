@@ -500,3 +500,4 @@ public class MapsActivity extends AppCompatActivity
     }
     // [END maps_current_place_update_location_ui]
 }
+
