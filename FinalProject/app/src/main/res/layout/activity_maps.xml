@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         tools:context=".MapsActivity" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.matti.finalproject.MovableFab
         android:id="@+id/fab_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
