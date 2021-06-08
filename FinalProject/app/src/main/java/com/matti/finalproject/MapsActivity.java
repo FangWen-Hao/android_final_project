@@ -2,38 +2,38 @@ package com.matti.finalproject;
 
 // https://developers.google.com/maps/documentation/android-sdk/current-place-tutorial#java
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
-
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -41,36 +41,56 @@ import com.google.android.libraries.places.api.model.PlaceLikelihood;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+/**
+ * An activity that displays a map showing the place at the device's current location.
+ */
+public class MapsActivity extends AppCompatActivity
+        implements OnMapReadyCallback {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
-    private GoogleMap mMap;
+    private GoogleMap map;
+    private CameraPosition cameraPosition;
 
+    // The entry point to the Places API.
     private PlacesClient placesClient;
 
-    private int markersNo;
-    static final String Markers = "Number of markers";
+    // The entry point to the Fused Location Provider.
+    private FusedLocationProviderClient fusedLocationProviderClient;
 
-    private final LatLng defaultLocation = new LatLng(-25.032969, 121.565414);
+    // A default location (Sydney, Australia) and default zoom to use when location permission is
+    // not granted.
+    private final LatLng defaultLocation = new LatLng(-33.8523341, 151.2106085);
     private static final int DEFAULT_ZOOM = 15;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    private Location lastKnownLocation;
-    private CameraPosition cameraPosition;
-    private FusedLocationProviderClient mFusedLocationClient;
-
     private boolean locationPermissionGranted;
 
+    // The geographical location where the device is currently located. That is, the last-known
+    // location retrieved by the Fused Location Provider.
+    private Location lastKnownLocation;
+
+    // Keys for storing activity state.
+    // [START maps_current_place_state_keys]
+    private float sharedPrefBearing;
+    private static final String KEY_BEARING = "camera_position_bearing";
+    private double sharedPrefLatitude;
+    private static final String KEY_LAT = "camera_position_latitude";
+    private double sharedPrefLongitude;
+    private static final String KEY_LONG = "camera_position_longitude";
+    private float sharedPrefTilt;
+    private static final String KEY_TILT = "camera_position_TILT";
+    private float sharedPrefZoom;
+    private static final String KEY_ZOOM = "camera_position_zoom";
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
-
     private SharedPreferences mPreferences;
-    private final String sharedPrefFile = "com.matti.finalproject";
-
-    private MarkerOptions markerOptions;
+    private final String sharedPrefFile = "com.example.android.scorekeeper";
+    // [END maps_current_place_state_keys]
 
     // Used for selecting the current place.
     private static final int M_MAX_ENTRIES = 5;
@@ -79,16 +99,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
 
+    // [START maps_current_place_on_create]
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // [START_EXCLUDE silent]
+        // [START maps_current_place_on_create_save_instance_state]
+        // Retrieve location and camera position from saved instance state.
+
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
+        sharedPrefZoom = mPreferences.getFloat(KEY_ZOOM, DEFAULT_ZOOM);
+        sharedPrefTilt = mPreferences.getFloat(KEY_TILT, 0);
+        sharedPrefLongitude = Double.longBitsToDouble(mPreferences.getLong(KEY_LONG, Double.doubleToRawLongBits(defaultLocation.longitude)));
+        sharedPrefLatitude= Double.longBitsToDouble(mPreferences.getLong(KEY_LAT, Double.doubleToRawLongBits(defaultLocation.latitude)));;
+        sharedPrefBearing = mPreferences.getFloat(KEY_BEARING, 0);
+
+        if (savedInstanceState != null) {
+            lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
+            cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
+        }
+        // [END maps_current_place_on_create_save_instance_state]
+        // [END_EXCLUDE]
+
+        // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
+        // [START_EXCLUDE silent]
+        // Construct a PlacesClient
+        Places.initialize(getApplicationContext(), getString(R.string.google_maps_key));
+        placesClient = Places.createClient(this);
+
+        // Construct a FusedLocationProviderClient.
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        // Build the map.
+        // [START maps_current_place_map_fragment]
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        markersNo = mPreferences.getInt(Markers, 1);
+        // [END maps_current_place_map_fragment]
+        // [END_EXCLUDE]
         FloatingActionButton fab = findViewById(R.id.fab_map);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,34 +148,98 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 showCurrentPlace();
             }
         });
-        if (savedInstanceState != null) {
-            lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-            cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
-        }
+    }
+    // [END maps_current_place_on_create]
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        sharedPrefBearing = map.getCameraPosition().bearing;
+        sharedPrefLatitude = map.getCameraPosition().target.latitude;
+        sharedPrefLongitude = map.getCameraPosition().target.longitude;
+        sharedPrefTilt = map.getCameraPosition().tilt;
+        sharedPrefZoom = map.getCameraPosition().zoom;
+        //    https://stackoverflow.com/questions/16319237/cant-put-double-sharedpreferences
+
+        preferencesEditor.putFloat(KEY_BEARING, sharedPrefBearing);
+        preferencesEditor.putLong(KEY_LAT, Double.doubleToRawLongBits(sharedPrefLatitude));
+        preferencesEditor.putLong(KEY_LONG, Double.doubleToRawLongBits(sharedPrefLongitude));
+        preferencesEditor.putFloat(KEY_TILT, sharedPrefTilt);
+        preferencesEditor.putFloat(KEY_ZOOM, sharedPrefZoom);
+
+        preferencesEditor.apply();
     }
 
     /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
+     * Saves the state of the map when the activity is paused.
      */
+    // [START maps_current_place_on_save_instance_state]
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+    protected void onSaveInstanceState(Bundle outState) {
+        if (map != null) {
+            outState.putParcelable(KEY_CAMERA_POSITION, map.getCameraPosition());
+            outState.putParcelable(KEY_LOCATION, lastKnownLocation);
+        }
+        super.onSaveInstanceState(outState);
+    }
+    // [END maps_current_place_on_save_instance_state]
+
+    /**
+     * Sets up the options menu.
+     * @param menu The options menu.
+     * @return Boolean.
+     */
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.current_place_menu, menu);
+//        return true;
+//    }
+//
+//    /**
+//     * Handles a click on the menu option to get a place.
+//     * @param item The menu item to handle.
+//     * @return Boolean.
+//     */
+//    // [START maps_current_place_on_options_item_selected]
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == R.id.option_get_place) {
+//            showCurrentPlace();
+//        }
+//        return true;
+//    }
+//    // [END maps_current_place_on_options_item_selected]
+
+    /**
+     * Manipulates the map when it's available.
+     * This callback is triggered when the map is ready to be used.
+     */
+    // [START maps_current_place_on_map_ready]
+    @Override
+    public void onMapReady(GoogleMap map) {
+        this.map = map;
+
+        UiSettings ui = map.getUiSettings();
+        ui.setCompassEnabled(true);
+        ui.setZoomControlsEnabled(true);
+
+        CameraPosition.builder()
+                .bearing(sharedPrefBearing)
+                .target(new LatLng(sharedPrefLatitude, sharedPrefLongitude))
+                .tilt(sharedPrefTilt)
+                .zoom(sharedPrefZoom)
+                .build();
 
         // [START_EXCLUDE]
         // [START map_current_place_set_info_window_adapter]
         // Use a custom info window adapter to handle multiple lines of text in the
         // info window contents.
-        mMap.setInfoWindowAdapter(new GoogleMap .InfoWindowAdapter() {
+        this.map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
-            @Nullable
             @Override
-            public View getInfoWindow(@NonNull Marker marker) {
+            // Return null here, so that getInfoContents() is called next.
+            public View getInfoWindow(Marker arg0) {
                 return null;
             }
 
@@ -154,7 +270,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
     }
+    // [END maps_current_place_on_map_ready]
 
+    /**
+     * Gets the current location of the device, and positions the map's camera.
+     */
+    // [START maps_current_place_get_device_location]
+    private void getDeviceLocation() {
+        /*
+         * Get the best and most recent location of the device, which may be null in rare
+         * cases when a location is not available.
+         */
+        try {
+            if (locationPermissionGranted) {
+                Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
+                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        if (task.isSuccessful()) {
+                            // Set the map's camera position to the current location of the device.
+                            lastKnownLocation = task.getResult();
+                            if (lastKnownLocation != null) {
+                                map.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                                        new LatLng(lastKnownLocation.getLatitude(),
+                                                lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            }
+                        } else {
+                            Log.d(TAG, "Current location is null. Using defaults.");
+                            Log.e(TAG, "Exception: %s", task.getException());
+                            map.moveCamera(CameraUpdateFactory
+                                    .newLatLngZoom(defaultLocation, DEFAULT_ZOOM));
+                            map.getUiSettings().setMyLocationButtonEnabled(false);
+                        }
+                    }
+                });
+            }
+        } catch (SecurityException e)  {
+            Log.e("Exception: %s", e.getMessage(), e);
+        }
+    }
+    // [END maps_current_place_get_device_location]
+
+    /**
+     * Prompts the user for permission to use the device location.
+     */
+    // [START maps_current_place_location_permission]
     private void getLocationPermission() {
         /*
          * Request location permission, so that we can get the location of the
@@ -171,7 +331,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
         }
     }
+    // [END maps_current_place_location_permission]
 
+    /**
+     * Handles the result of the request for location permissions.
+     */
+    // [START maps_current_place_on_request_permissions_result]
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
@@ -189,61 +354,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         updateLocationUI();
     }
+    // [END maps_current_place_on_request_permissions_result]
 
-    private void updateLocationUI() {
-        if (mMap == null) {
-            return;
-        }
-        try {
-            if (locationPermissionGranted) {
-                mMap.setMyLocationEnabled(true);
-                mMap.getUiSettings().setMyLocationButtonEnabled(true);
-            } else {
-                mMap.setMyLocationEnabled(false);
-                mMap.getUiSettings().setMyLocationButtonEnabled(false);
-                lastKnownLocation = null;
-                getLocationPermission();
-            }
-        } catch (SecurityException e) {
-            Log.e("Exception: %s", e.getMessage());
-        }
-    }
-
-    private void getDeviceLocation() {
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
-        try {
-            if (locationPermissionGranted) {
-                Task<Location> locationResult = mFusedLocationClient.getLastLocation();
-                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        if (task.isSuccessful()) {
-                            // Set the map's camera position to the current location of the device.
-                            lastKnownLocation = task.getResult();
-                            if (lastKnownLocation != null) {
-                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                        new LatLng(lastKnownLocation.getLatitude(),
-                                                lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-                            }
-                        } else {
-                            mMap.moveCamera(CameraUpdateFactory
-                                    .newLatLngZoom(defaultLocation, DEFAULT_ZOOM));
-                            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-                        }
-                    }
-                });
-            }
-        } catch (SecurityException e) {
-            Log.e("Exception: %s", e.getMessage(), e);
-        }
-
-    }
-
+    /**
+     * Prompts the user to select the current place from a list of likely places, and shows the
+     * current place on the map - provided the user has granted location permission.
+     */
+    // [START maps_current_place_show_current_place]
     private void showCurrentPlace() {
-        if (mMap == null) {
+        if (map == null) {
             return;
         }
 
@@ -309,7 +428,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.i(TAG, "The user did not grant location permission.");
 
             // Add a default marker, because the user hasn't selected a place.
-            mMap.addMarker(new MarkerOptions()
+            map.addMarker(new MarkerOptions()
                     .title(getString(R.string.default_info_title))
                     .position(defaultLocation)
                     .snippet(getString(R.string.default_info_snippet)));
@@ -318,7 +437,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             getLocationPermission();
         }
     }
+    // [END maps_current_place_show_current_place]
 
+    /**
+     * Displays a form allowing the user to select a place from a list of likely places.
+     */
+    // [START maps_current_place_open_places_dialog]
     private void openPlacesDialog() {
         // Ask the user to choose the place where they are now.
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
@@ -333,13 +457,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 // Add a marker for the selected place, with an info window
                 // showing information about that place.
-                mMap.addMarker(new MarkerOptions()
+                map.addMarker(new MarkerOptions()
                         .title(likelyPlaceNames[which])
                         .position(markerLatLng)
                         .snippet(markerSnippet));
 
                 // Position the map's camera at the location of the marker.
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLatLng,
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLatLng,
                         DEFAULT_ZOOM));
             }
         };
@@ -350,4 +474,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .setItems(likelyPlaceNames, listener)
                 .show();
     }
+    // [END maps_current_place_open_places_dialog]
+
+    /**
+     * Updates the map's UI settings based on whether the user has granted location permission.
+     */
+    // [START maps_current_place_update_location_ui]
+    private void updateLocationUI() {
+        if (map == null) {
+            return;
+        }
+        try {
+            if (locationPermissionGranted) {
+                map.setMyLocationEnabled(true);
+                map.getUiSettings().setMyLocationButtonEnabled(true);
+            } else {
+                map.setMyLocationEnabled(false);
+                map.getUiSettings().setMyLocationButtonEnabled(false);
+                lastKnownLocation = null;
+                getLocationPermission();
+            }
+        } catch (SecurityException e)  {
+            Log.e("Exception: %s", e.getMessage());
+        }
+    }
+    // [END maps_current_place_update_location_ui]
 }
