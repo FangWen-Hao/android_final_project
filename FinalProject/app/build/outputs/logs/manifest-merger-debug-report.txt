@@ -169,13 +169,13 @@ ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\s
 	android:name
 		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:34:23-61
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:36:9-38:69
+ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:35:9-37:69
 MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:38:13-66
+		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:37:13-66
 	android:name
-		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:37:13-58
+		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:36:13-58
 activity#com.matti.finalproject.MapsActivity
 ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:40:9-42:59
 	android:label

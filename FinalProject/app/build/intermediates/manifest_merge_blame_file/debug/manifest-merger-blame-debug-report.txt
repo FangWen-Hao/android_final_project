@@ -90,11 +90,11 @@
 57-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:34:23-61
 58
 59        <meta-data
-59-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:36:9-38:69
+59-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:35:9-37:69
 60            android:name="com.google.android.gms.version"
-60-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:37:13-58
+60-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:36:13-58
 61            android:value="@integer/google_play_services_version" />
-61-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:38:13-66
+61-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:37:13-66
 62
 63        <activity
 63-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:40:9-42:59
