@@ -22,7 +22,11 @@
     string in this file.
     -->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyA1hmqXG2KsGqdqrlab2dYKNqqhCyjymqE</string>
+=======
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false"> AIzaSyAhcB1cVZo_P4P2_kulhGCj3b9iGmuEkno </string>
+>>>>>>> edbb1c9452ff723c4d410e014db38e5385c3d3f5
 =======
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false"> AIzaSyAhcB1cVZo_P4P2_kulhGCj3b9iGmuEkno </string>
 >>>>>>> edbb1c9452ff723c4d410e014db38e5385c3d3f5
