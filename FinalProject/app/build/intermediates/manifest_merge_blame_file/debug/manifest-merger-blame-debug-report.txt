@@ -23,15 +23,15 @@
 17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 17-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:11:5-81
 17-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:11:22-78
-18    <uses-permission android:name="android.permission.INTERNET" />
-18-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:12:5-67
-18-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:12:22-64
-19    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Include required permissions for Google Maps API to run. -->
-19-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:10:5-76
-19-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:10:22-73
-20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-20-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:23:5-79
-20-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:23:22-76
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:12:5-79
+18-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:12:22-76
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:13:5-67
+19-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:13:22-64
+20    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+20-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:10:5-76
+20-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:10:22-73
 21
 22    <uses-feature
 22-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:26:5-28:35
@@ -50,24 +50,24 @@
 30    </queries>
 31
 32    <application
-32-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:14:5-47:19
+32-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:15:5-49:19
 33        android:name="androidx.multidex.MultiDexApplication"
 34        android:allowBackup="true"
-34-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:15:9-35
+34-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:16:9-35
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 35-->[androidx.core:core:1.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\930edaa1acf947b6140ccdbca50e0857\core-1.5.0\AndroidManifest.xml:24:18-86
 36        android:debuggable="true"
 37        android:icon="@mipmap/ic_launcher"
-37-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:16:9-43
+37-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:17:9-43
 38        android:label="@string/app_name"
-38-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:17:9-41
+38-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:18:9-41
 39        android:roundIcon="@mipmap/ic_launcher_round"
-39-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:18:9-54
+39-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:19:9-54
 40        android:supportsRtl="true"
-40-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:19:9-35
+40-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:20:9-35
 41        android:testOnly="true"
 42        android:theme="@style/Theme.FinalProject" >
-42-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:20:9-50
+42-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:21:9-50
 43
 44        <!--
 45             The API key for Google Maps-based APIs is defined as a string resource.
@@ -79,113 +79,117 @@
 51        -->
 52
 53        <meta-data
-53-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:30:9-32:55
+53-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:31:9-33:71
 54            android:name="com.google.android.geo.API_KEY"
-54-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:31:13-58
-55            android:value="@string/google_maps_key" />
-55-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:32:13-52
+54-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:32:13-58
+55            android:value="AIzaSyA1hmqXG2KsGqdqrlab2dYKNqqhCyjymqE" />
+55-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:33:13-68
 56
-57        <activity
-57-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:34:9-36:59
-58            android:name="com.matti.finalproject.MapsActivity"
-58-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:35:13-41
-59            android:label="@string/title_activity_maps" />
-59-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:36:13-56
-60        <activity
-60-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:37:9-46:20
-61            android:name="com.matti.finalproject.MainActivity"
-61-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:38:13-41
-62            android:label="@string/app_name"
-62-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:39:13-45
-63            android:theme="@style/Theme.FinalProject.NoActionBar" >
-63-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:40:13-66
-64            <intent-filter>
-64-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:41:13-45:29
-65                <action android:name="android.intent.action.MAIN" />
-65-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:42:17-69
-65-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:42:25-66
-66
-67                <category android:name="android.intent.category.LAUNCHER" />
-67-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:44:17-77
-67-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:44:27-74
-68            </intent-filter>
-69        </activity>
-70        <activity
-70-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:14:9-20:20
-71            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
-71-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:15:13-91
-72            android:exported="false"
-72-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:16:13-37
-73            android:label="@string/places_autocomplete_label"
-73-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:17:13-62
-74            android:theme="@style/PlacesAutocompleteOverlay"
-74-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:18:13-61
-75            android:windowSoftInputMode="adjustResize" >
-75-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:19:13-55
-76        </activity> <!-- Needs to be explicitly declared on P+ -->
-77        <uses-library
-77-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:39:9-41:40
-78            android:name="org.apache.http.legacy"
-78-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:40:13-50
-79            android:required="false" />
-79-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:41:13-37
-80
-81        <activity
-81-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
-82            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-82-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
-83            android:exported="false"
-83-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
-84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-84-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
-85
-86        <meta-data
-86-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
-87            android:name="com.google.android.gms.version"
-87-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
-88            android:value="@integer/google_play_services_version" />
-88-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
-89
-90        <provider
-90-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-91            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-91-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-92            android:authorities="com.matti.finalproject.lifecycle-process"
-92-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-93            android:exported="false"
-93-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-94            android:multiprocess="true" />
-94-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-95
-96        <service
-96-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:29:9-35:19
-97            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-97-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:30:13-103
-98            android:exported="false" >
-98-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:31:13-37
-99            <meta-data
-99-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:32:13-34:39
-100                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-100-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:33:17-94
-101                android:value="cct" />
-101-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:34:17-36
-102        </service>
-103        <service
-103-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:26:9-30:19
-104            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-104-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:27:13-117
-105            android:exported="false"
-105-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:28:13-37
-106            android:permission="android.permission.BIND_JOB_SERVICE" >
-106-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:29:13-69
-107        </service>
-108
-109        <receiver
-109-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:32:9-34:40
-110            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-110-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:33:13-132
-111            android:exported="false" />
-111-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:34:13-37
-112    </application>
-113
-114</manifest>
+57        <uses-library android:name="com.google.android.maps" />
+57-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:34:9-64
+57-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:34:23-61
+58
+59        <activity
+59-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:36:9-38:59
+60            android:name="com.matti.finalproject.MapsActivity"
+60-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:37:13-41
+61            android:label="@string/title_activity_maps" />
+61-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:38:13-56
+62        <activity
+62-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:39:9-48:20
+63            android:name="com.matti.finalproject.MainActivity"
+63-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:40:13-41
+64            android:label="@string/app_name"
+64-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:41:13-45
+65            android:theme="@style/Theme.FinalProject.NoActionBar" >
+65-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:42:13-66
+66            <intent-filter>
+66-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:43:13-47:29
+67                <action android:name="android.intent.action.MAIN" />
+67-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:44:17-69
+67-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:44:25-66
+68
+69                <category android:name="android.intent.category.LAUNCHER" />
+69-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:46:17-77
+69-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:46:27-74
+70            </intent-filter>
+71        </activity>
+72        <activity
+72-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:14:9-20:20
+73            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+73-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:15:13-91
+74            android:exported="false"
+74-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:16:13-37
+75            android:label="@string/places_autocomplete_label"
+75-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:17:13-62
+76            android:theme="@style/PlacesAutocompleteOverlay"
+76-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:18:13-61
+77            android:windowSoftInputMode="adjustResize" >
+77-->[com.google.android.libraries.places:places:2.4.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\472034178ac8939cec1eb9eb8a963f6d\jetified-places-2.4.0\AndroidManifest.xml:19:13-55
+78        </activity> <!-- Needs to be explicitly declared on P+ -->
+79        <uses-library
+79-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:39:9-41:40
+80            android:name="org.apache.http.legacy"
+80-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:40:13-50
+81            android:required="false" />
+81-->[com.google.android.gms:play-services-maps:17.0.1] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d2ad7eb3ef7905efb3d500cf9b14ce2e\jetified-play-services-maps-17.0.1\AndroidManifest.xml:41:13-37
+82
+83        <activity
+83-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+84            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+84-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+85            android:exported="false"
+85-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+86            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+86-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\46a33f377d0e59775a26ce099eda454b\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+87
+88        <meta-data
+88-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+89            android:name="com.google.android.gms.version"
+89-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
+90            android:value="@integer/google_play_services_version" />
+90-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\3d6c2ca1c49b71e77c648dac166fa21b\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+91
+92        <provider
+92-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+93            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+93-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+94            android:authorities="com.matti.finalproject.lifecycle-process"
+94-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+95            android:exported="false"
+95-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+96            android:multiprocess="true" />
+96-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\490a391d1e95ab2e2c2180876a15f9d8\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+97
+98        <service
+98-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:29:9-35:19
+99            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+99-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:30:13-103
+100            android:exported="false" >
+100-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:31:13-37
+101            <meta-data
+101-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:32:13-34:39
+102                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+102-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:33:17-94
+103                android:value="cct" />
+103-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\7a1005160f83ecbdbe8e756fda0e9643\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:34:17-36
+104        </service>
+105        <service
+105-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:26:9-30:19
+106            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+106-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:27:13-117
+107            android:exported="false"
+107-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:28:13-37
+108            android:permission="android.permission.BIND_JOB_SERVICE" >
+108-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:29:13-69
+109        </service>
+110
+111        <receiver
+111-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:32:9-34:40
+112            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+112-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:33:13-132
+113            android:exported="false" />
+113-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d3d2824ff331f439ca95b74442ced2ef\jetified-transport-runtime-2.2.3\AndroidManifest.xml:34:13-37
+114    </application>
+115
+116</manifest>
