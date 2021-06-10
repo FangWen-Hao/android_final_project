@@ -52,6 +52,10 @@
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout-v17_custom_info_contents.xml.flat",
+        "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\src\\main\\res\\layout-v17\\custom_info_contents.xml"
+    },
+    {
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\src\\main\\res\\layout\\activity_main.xml"
     },

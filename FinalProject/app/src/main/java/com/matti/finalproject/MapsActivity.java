@@ -47,8 +47,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.matti.finalproject.BuildConfig.MAPS_API_KEY;
-
 /**
  * An activity that displays a map showing the place at the device's current location.
  */
