@@ -76,20 +76,8 @@ public class MapsActivity extends AppCompatActivity
 
     // Keys for storing activity state.
     // [START maps_current_place_state_keys]
-    private float sharedPrefBearing;
-    private static final String KEY_BEARING = "camera_position_bearing";
-    private double sharedPrefLatitude;
-    private static final String KEY_LAT = "camera_position_latitude";
-    private double sharedPrefLongitude;
-    private static final String KEY_LONG = "camera_position_longitude";
-    private float sharedPrefTilt;
-    private static final String KEY_TILT = "camera_position_TILT";
-    private float sharedPrefZoom;
-    private static final String KEY_ZOOM = "camera_position_zoom";
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
-    private SharedPreferences mPreferences;
-    private final String sharedPrefFile = "com.example.android.scorekeeper";
     // [END maps_current_place_state_keys]
 
     // Used for selecting the current place.
@@ -107,14 +95,6 @@ public class MapsActivity extends AppCompatActivity
         // [START_EXCLUDE silent]
         // [START maps_current_place_on_create_save_instance_state]
         // Retrieve location and camera position from saved instance state.
-
-        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-
-        sharedPrefZoom = mPreferences.getFloat(KEY_ZOOM, DEFAULT_ZOOM);
-        sharedPrefTilt = mPreferences.getFloat(KEY_TILT, 0);
-        sharedPrefLongitude = Double.longBitsToDouble(mPreferences.getLong(KEY_LONG, Double.doubleToRawLongBits(defaultLocation.longitude)));
-        sharedPrefLatitude= Double.longBitsToDouble(mPreferences.getLong(KEY_LAT, Double.doubleToRawLongBits(defaultLocation.latitude)));;
-        sharedPrefBearing = mPreferences.getFloat(KEY_BEARING, 0);
 
         if (savedInstanceState != null) {
             lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
@@ -150,26 +130,6 @@ public class MapsActivity extends AppCompatActivity
         });
     }
     // [END maps_current_place_on_create]
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        sharedPrefBearing = map.getCameraPosition().bearing;
-        sharedPrefLatitude = map.getCameraPosition().target.latitude;
-        sharedPrefLongitude = map.getCameraPosition().target.longitude;
-        sharedPrefTilt = map.getCameraPosition().tilt;
-        sharedPrefZoom = map.getCameraPosition().zoom;
-        //    https://stackoverflow.com/questions/16319237/cant-put-double-sharedpreferences
-
-        preferencesEditor.putFloat(KEY_BEARING, sharedPrefBearing);
-        preferencesEditor.putLong(KEY_LAT, Double.doubleToRawLongBits(sharedPrefLatitude));
-        preferencesEditor.putLong(KEY_LONG, Double.doubleToRawLongBits(sharedPrefLongitude));
-        preferencesEditor.putFloat(KEY_TILT, sharedPrefTilt);
-        preferencesEditor.putFloat(KEY_ZOOM, sharedPrefZoom);
-
-        preferencesEditor.apply();
-    }
 
     /**
      * Saves the state of the map when the activity is paused.
@@ -223,13 +183,6 @@ public class MapsActivity extends AppCompatActivity
         UiSettings ui = map.getUiSettings();
         ui.setCompassEnabled(true);
         ui.setZoomControlsEnabled(true);
-
-        CameraPosition.builder()
-                .bearing(sharedPrefBearing)
-                .target(new LatLng(sharedPrefLatitude, sharedPrefLongitude))
-                .tilt(sharedPrefTilt)
-                .zoom(sharedPrefZoom)
-                .build();
 
         // [START_EXCLUDE]
         // [START map_current_place_set_info_window_adapter]
