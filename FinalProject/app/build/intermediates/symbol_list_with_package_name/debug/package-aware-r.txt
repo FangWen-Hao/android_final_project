@@ -2697,6 +2697,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_maps
+layout activity_markers
 layout content_main
 layout custom_dialog
 layout custom_info_contents

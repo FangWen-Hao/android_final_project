@@ -76,6 +76,10 @@
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout\\fragment_first.xml"
     },
     {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_markers.xml.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout\\activity_markers.xml"
+    },
+    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
