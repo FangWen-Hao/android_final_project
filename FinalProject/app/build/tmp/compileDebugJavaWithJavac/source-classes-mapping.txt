@@ -7,6 +7,7 @@ com/matti/finalproject/MapsActivity.java
  com.matti.finalproject.MapsActivity$3
  com.matti.finalproject.MapsActivity$4
  com.matti.finalproject.MapsActivity$5
+ com.matti.finalproject.MapsActivity$MainActivity
 com/matti/finalproject/SecondFragment.java
  com.matti.finalproject.SecondFragment
  com.matti.finalproject.SecondFragment$1
