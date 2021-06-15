@@ -2113,11 +2113,12 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_action_add
+drawable ic_action_refresh
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-drawable ic_map_options
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -2241,6 +2242,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addMsg
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2291,6 +2293,7 @@ id container
 id content
 id contentPanel
 id contiguous
+id coordinates
 id coordinator
 id cos
 id counterclockwise
@@ -2825,6 +2828,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string action_settings
+string add_marker
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
@@ -2856,6 +2860,7 @@ string default_info_snippet
 string default_info_title
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
+string fab_refresh
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string first_fragment_label

@@ -15,4 +15,6 @@
     <string name="default_info_title">default marker placeholder text</string>
     <string name="default_info_snippet">default marker info snippet placeholder</string>
     <string name="pick_place">Pick a place</string>
+    <string name="fab_refresh">Refresh</string>
+    <string name="add_marker">Click the description box to add the following marker</string>
 </resources>

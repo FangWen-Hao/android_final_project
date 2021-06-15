@@ -1,19 +1,25 @@
 package com.matti.finalproject;
 
 // https://developers.google.com/maps/documentation/android-sdk/current-place-tutorial#java
+// https://stackoverflow.com/questions/43100365/how-to-refresh-a-google-map-manually
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -45,13 +51,19 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * An activity that displays a map showing the place at the device's current location.
  */
 public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
+
+    private Map<Marker, Map<String, Object>> markers = new HashMap<>();
+    private Map<String, Object> dataModel = new HashMap<>();
+
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap map;
@@ -121,13 +133,11 @@ public class MapsActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
         // [END maps_current_place_map_fragment]
         // [END_EXCLUDE]
-        FloatingActionButton fab = findViewById(R.id.fab_map);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showCurrentPlace();
-            }
-        });
+        dataModel.put("title", "Selected place");
+        dataModel.put("snipet", "You have selected this place");
+        dataModel.put("latitude", 20.0f);
+        dataModel.put("longitude", 100.0f);
+
     }
     // [END maps_current_place_on_create]
 
@@ -144,6 +154,21 @@ public class MapsActivity extends AppCompatActivity
         super.onSaveInstanceState(outState);
     }
     // [END maps_current_place_on_save_instance_state]
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //TODO: code to pass markers list to database (?)
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(map != null){ //prevent crashing if the map doesn't exist yet (eg. on starting activity)
+            map.clear();
+            // TODO: add markers from database to the map
+        }
+    }
 
     /**
      * Sets up the options menu.
@@ -184,11 +209,32 @@ public class MapsActivity extends AppCompatActivity
         ui.setCompassEnabled(true);
         ui.setZoomControlsEnabled(true);
 
+        FloatingActionButton fab = findViewById(R.id.fab_map);
+        fab.setContentDescription(getString(R.string.fab_refresh));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    onResume();
+            }
+        });
+
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng point) {
+
+                map.clear();
+                Marker marker = map.addMarker(new MarkerOptions()
+                        .position(point)
+                        .title("Selected place"));
+                markers.put(marker, dataModel);
+            }
+        });
+
         // [START_EXCLUDE]
         // [START map_current_place_set_info_window_adapter]
         // Use a custom info window adapter to handle multiple lines of text in the
         // info window contents.
-        this.map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+        map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
             @Override
             // Return null here, so that getInfoContents() is called next.
@@ -208,9 +254,32 @@ public class MapsActivity extends AppCompatActivity
                 TextView snippet = infoWindow.findViewById(R.id.snippet);
                 snippet.setText(marker.getSnippet());
 
+                TextView coordinates = infoWindow.findViewById(R.id.coordinates);
+                coordinates.setText("Latitude: " + marker.getPosition().latitude + "\n Longitude: "+ marker.getPosition().longitude);
+
+                TextView addMarker = infoWindow.findViewById(R.id.addMsg);
+                if (marker.getTitle().equals("Selected place")){
+                    addMarker.setText(getString(R.string.add_marker));
+                    map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                        @Override
+                        public void onInfoWindowClick(@NonNull Marker marker) {
+                                //allPoints.add(point); TODO: make a list of the different points with, for each marker, a name, mode (silent or vibration or noise) and LatLang to a database or file that will be accessible by MainActivity.java
+                                // TODO: (cont) and will be displayed in a recycler view
+                                //Intent intent = new Intent(MapsActivity.this, MainActivity.class);
+                                //startActivity(intent); Test to see if this works: result it does
+                        }
+                    });
+                }
+                else{
+                    addMarker.setText("");
+                }
+
                 return infoWindow;
             }
         });
+
+
+
         // [END map_current_place_set_info_window_adapter]
 
         // Prompt the user for permission.
@@ -452,38 +521,5 @@ public class MapsActivity extends AppCompatActivity
         }
     }
     // [END maps_current_place_update_location_ui]
-
-    public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-
-        }
-
-        // Update the map configuration at runtime.
-        @Override
-        public void onMapReady(GoogleMap googleMap) {
-            // Set the map coordinates to Kyoto Japan.
-            LatLng kyoto = new LatLng(35.00116, 135.7681);
-            // Set the map type to Hybrid.
-            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-            // Add a marker on the map coordinates.
-            googleMap.addMarker(new MarkerOptions()
-                    .position(kyoto)
-                    .title("Kyoto"));
-            // Move the camera to the map coordinates and zoom in closer.
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(kyoto));
-            googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
-            // Display traffic.
-            googleMap.setTrafficEnabled(true);
-
-        }
-    }
 }
 
