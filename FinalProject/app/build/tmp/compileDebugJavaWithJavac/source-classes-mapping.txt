@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com/matti/finalproject/BuildConfig.java
  com.matti.finalproject.BuildConfig
 com/matti/finalproject/MapsActivity.java
@@ -18,3 +19,26 @@ com/matti/finalproject/FirstFragment.java
 com/matti/finalproject/MainActivity.java
  com.matti.finalproject.MainActivity
  com.matti.finalproject.MainActivity$1
+=======
+com/matti/finalproject/BuildConfig.java
+ com.matti.finalproject.BuildConfig
+com/matti/finalproject/MapsActivity.java
+ com.matti.finalproject.MapsActivity
+ com.matti.finalproject.MapsActivity$1
+ com.matti.finalproject.MapsActivity$2
+ com.matti.finalproject.MapsActivity$3
+ com.matti.finalproject.MapsActivity$4
+ com.matti.finalproject.MapsActivity$5
+ com.matti.finalproject.MapsActivity$MainActivity
+com/matti/finalproject/SecondFragment.java
+ com.matti.finalproject.SecondFragment
+ com.matti.finalproject.SecondFragment$1
+com/matti/finalproject/MovableFab.java
+ com.matti.finalproject.MovableFab
+com/matti/finalproject/FirstFragment.java
+ com.matti.finalproject.FirstFragment
+ com.matti.finalproject.FirstFragment$1
+com/matti/finalproject/MainActivity.java
+ com.matti.finalproject.MainActivity
+ com.matti.finalproject.MainActivity$1
+>>>>>>> f59ee0176cecdb69a36e1dc2c5c4789fb1f6887c
