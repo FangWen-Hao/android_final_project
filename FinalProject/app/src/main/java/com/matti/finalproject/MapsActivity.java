@@ -108,7 +108,7 @@ public class MapsActivity extends AppCompatActivity
 
         // [START_EXCLUDE silent]
         // Construct a PlacesClient
-        Places.initialize(getApplicationContext(), getString(R.string.google_maps_key));
+        Places.initialize(getApplicationContext(), "AIzaSyA1hmqXG2KsGqdqrlab2dYKNqqhCyjymqE");
         placesClient = Places.createClient(this);
 
         // Construct a FusedLocationProviderClient.
