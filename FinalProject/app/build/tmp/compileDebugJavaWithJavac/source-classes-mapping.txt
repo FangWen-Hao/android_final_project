@@ -14,6 +14,11 @@ com/matti/finalproject/SecondFragment.java
  com.matti.finalproject.SecondFragment$1
 com/matti/finalproject/MovableFab.java
  com.matti.finalproject.MovableFab
+com/matti/finalproject/User.java
+ com.matti.finalproject.User
+ com.matti.finalproject.User$1
+com/matti/finalproject/UserLocation.java
+ com.matti.finalproject.UserLocation
 com/matti/finalproject/FirstFragment.java
  com.matti.finalproject.FirstFragment
  com.matti.finalproject.FirstFragment$1
