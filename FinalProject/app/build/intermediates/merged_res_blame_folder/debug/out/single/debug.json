@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout\\fragment_second.xml"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout-v17_custom_info_contents.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout-v17\\custom_info_contents.xml"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_action_add.xml.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_action_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout-v17_custom_info_contents.xml.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout-v17\\custom_info_contents.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
@@ -50,6 +50,10 @@
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_action_refresh.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_action_refresh.png"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_recyclerview_row.xml.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout\\recyclerview_row.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
@@ -118,6 +122,10 @@
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_recyclerview.xml.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout\\recyclerview.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",

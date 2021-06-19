@@ -2507,6 +2507,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rvAnimals
 id satellite
 id save_non_transition_alpha
 id save_overlay_view
@@ -2619,6 +2620,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAnimalName
 id unchecked
 id uniform
 id unlabeled
@@ -2776,6 +2778,8 @@ layout places_autocomplete_impl_fragment_overlay
 layout places_autocomplete_impl_powered_by_google
 layout places_autocomplete_impl_search_bar
 layout places_autocomplete_prediction
+layout recyclerview
+layout recyclerview_row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
