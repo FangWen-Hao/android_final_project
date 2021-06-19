@@ -28,11 +28,8 @@ com/matti/finalproject/UserLocation.java
 com/matti/finalproject/FirstFragment.java
  com.matti.finalproject.FirstFragment
  com.matti.finalproject.FirstFragment$1
+com/matti/finalproject/Recycler.java
+ com.matti.finalproject.Recycler
 com/matti/finalproject/MainActivity.java
  com.matti.finalproject.MainActivity
  com.matti.finalproject.MainActivity$1
-com/matti/finalproject/MyRecyclerViewAdapter.java
- com.matti.finalproject.MyRecyclerViewAdapter
- com.matti.finalproject.MyRecyclerViewAdapter$ItemClickListener
- com.matti.finalproject.MyRecyclerViewAdapter$MainActivity
- com.matti.finalproject.MyRecyclerViewAdapter$ViewHolder

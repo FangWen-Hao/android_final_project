@@ -1,6 +1,6 @@
 package com.matti.finalproject;
 
-public class MyListData {
+public class MyListData{
     private String description;
     private int imgId;
     public MyListData(String description, int imgId) {

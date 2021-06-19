@@ -1674,6 +1674,7 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen action_bar_size
+dimen activity_horizontal_margin
 dimen activity_vertical_margin
 dimen appcompat_dialog_background_inset
 dimen browser_actions_context_menu_max_width
@@ -2181,10 +2182,6 @@ id CTRL
 id FUNCTION
 id First2Fragment
 id FirstFragment
-id Location1
-id Location2
-id Location3
-id Location4
 id META
 id NO_DEBUG
 id SHIFT
@@ -2802,8 +2799,6 @@ layout places_autocomplete_impl_fragment_overlay
 layout places_autocomplete_impl_powered_by_google
 layout places_autocomplete_impl_search_bar
 layout places_autocomplete_prediction
-layout recyclerview
-layout recyclerview_row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
