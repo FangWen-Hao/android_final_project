@@ -1,3 +1,9 @@
+com/matti/finalproject/MyListData.java
+ com.matti.finalproject.MyListData
+com/matti/finalproject/MyListAdapter.java
+ com.matti.finalproject.MyListAdapter
+ com.matti.finalproject.MyListAdapter$1
+ com.matti.finalproject.MyListAdapter$ViewHolder
 com/matti/finalproject/BuildConfig.java
  com.matti.finalproject.BuildConfig
 com/matti/finalproject/MapsActivity.java

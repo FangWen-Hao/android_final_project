@@ -57,7 +57,7 @@
 33-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\43ae5ae66a3bf4e4c486acf2500b4c19\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:26:22-107
 34
 35    <application
-35-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:15:5-53:19
+35-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:15:5-56:19
 36        android:name="androidx.multidex.MultiDexApplication"
 37        android:allowBackup="true"
 37-->C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:16:9-35

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
+ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\34f0af1cd9c66850d79ce31a3eef9082\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\e55db24a95e0cc7f2dd679a53e6e6eea\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\4a6cf6b686a6752c28ead92b44aa46a2\material-1.3.0\AndroidManifest.xml:17:1-24:12
@@ -87,20 +87,20 @@ MERGED from [com.android.volley:volley:1.1.1] C:\Users\Irene Zheng\.gradle\cache
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\bd778a49548d500ce8dfe423ef9cb5b8\jetified-transport-api-2.2.0\AndroidManifest.xml:15:1-22:12
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\d81acc03e80c6270f7487183fa32f67a\jetified-grpc-android-1.28.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\f84f86984682de45b5848819f18e1dfa\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
 	package
 		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:2:11-69
@@ -169,7 +169,7 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Us
 	android:name
 		ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:13:22-64
 application
-ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:15:5-53:19
+ADDED from C:\Users\Irene Zheng\Desktop\android_final_project\FinalProject\app\src\main\AndroidManifest.xml:15:5-56:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\4a6cf6b686a6752c28ead92b44aa46a2\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\4a6cf6b686a6752c28ead92b44aa46a2\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Irene Zheng\.gradle\caches\transforms-2\files-2.1\747af2a80dee6d57d84d3379a5c813c9\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20

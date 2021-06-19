@@ -1674,6 +1674,7 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen action_bar_size
+dimen activity_vertical_margin
 dimen appcompat_dialog_background_inset
 dimen browser_actions_context_menu_max_width
 dimen browser_actions_context_menu_min_padding
@@ -1750,6 +1751,7 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen ic_clear_margin
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
@@ -2084,6 +2086,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2178,6 +2181,10 @@ id CTRL
 id FUNCTION
 id First2Fragment
 id FirstFragment
+id Location1
+id Location2
+id Location3
+id Location4
 id META
 id NO_DEBUG
 id SHIFT
@@ -2385,6 +2392,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id info
 id invisible
 id inward
@@ -2511,6 +2519,8 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerView
+id relativeLayout
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2603,6 +2613,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2631,7 +2642,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvAnimalName
 id unchecked
 id uniform
 id unlabeled
@@ -2735,6 +2745,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_first
 layout fragment_second
+layout list_item
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
