@@ -2893,6 +2893,8 @@ string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string marker_add_failure
+string marker_add_success
 string material_clock_display_divider
 string material_clock_toggle_content_description
 string material_hour_selection
