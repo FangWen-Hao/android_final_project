@@ -99,6 +99,8 @@ public class MapsActivity extends AppCompatActivity
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
 
+    private DatabaseHelper DBHelper;
+
     // [START maps_current_place_on_create]
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +140,8 @@ public class MapsActivity extends AppCompatActivity
         dataModel.put("latitude", 20.0f);
         dataModel.put("longitude", 100.0f);
 
+        DBHelper = new DatabaseHelper(this);
+
     }
     // [END maps_current_place_on_create]
 
@@ -175,26 +179,6 @@ public class MapsActivity extends AppCompatActivity
      * @param menu The options menu.
      * @return Boolean.
      */
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.current_place_menu, menu);
-//        return true;
-//    }
-//
-//    /**
-//     * Handles a click on the menu option to get a place.
-//     * @param item The menu item to handle.
-//     * @return Boolean.
-//     */
-//    // [START maps_current_place_on_options_item_selected]
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == R.id.option_get_place) {
-//            showCurrentPlace();
-//        }
-//        return true;
-//    }
-//    // [END maps_current_place_on_options_item_selected]
 
     /**
      * Manipulates the map when it's available.
@@ -263,10 +247,18 @@ public class MapsActivity extends AppCompatActivity
                     map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                         @Override
                         public void onInfoWindowClick(@NonNull Marker marker) {
-                                //allPoints.add(point); TODO: make a list of the different points with, for each marker, a name, mode (silent or vibration or noise) and LatLang to a database or file that will be accessible by MainActivity.java
-                                // TODO: (cont) and will be displayed in a recycler view
-                                //Intent intent = new Intent(MapsActivity.this, MainActivity.class);
-                                //startActivity(intent); Test to see if this works: result it does
+                                if (DBHelper.addData(
+                                        marker.getTitle(),
+                                        marker.getSnippet(),
+                                        Double.toString(marker.getPosition().latitude),
+                                        Double.toString(marker.getPosition().longitude),
+                                        "Silent"
+                                )){
+                                    addMarker.setText(getString(R.string.marker_add_success));
+                                }
+                                else{
+                                    addMarker.setText(getString(R.string.marker_add_failure));
+                                }
                         }
                     });
                 }

@@ -6,6 +6,8 @@ com/matti/finalproject/MyListAdapter.java
  com.matti.finalproject.MyListAdapter$ViewHolder
 com/matti/finalproject/BuildConfig.java
  com.matti.finalproject.BuildConfig
+com/matti/finalproject/DatabaseHelper.java
+ com.matti.finalproject.DatabaseHelper
 com/matti/finalproject/MapsActivity.java
  com.matti.finalproject.MapsActivity
  com.matti.finalproject.MapsActivity$1
@@ -20,11 +22,12 @@ com/matti/finalproject/SecondFragment.java
  com.matti.finalproject.SecondFragment$1
 com/matti/finalproject/MovableFab.java
  com.matti.finalproject.MovableFab
-com/matti/finalproject/MainActivity.java
- com.matti.finalproject.MainActivity
- com.matti.finalproject.MainActivity$1
 com/matti/finalproject/FirstFragment.java
  com.matti.finalproject.FirstFragment
  com.matti.finalproject.FirstFragment$1
 com/matti/finalproject/Recycler.java
  com.matti.finalproject.Recycler
+com/matti/finalproject/MainActivity.java
+ com.matti.finalproject.MainActivity
+ com.matti.finalproject.MainActivity$1
+ com.matti.finalproject.MainActivity$2

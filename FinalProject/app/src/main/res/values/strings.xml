@@ -17,4 +17,6 @@
     <string name="pick_place">Pick a place</string>
     <string name="fab_refresh">Refresh</string>
     <string name="add_marker">Click the description box to add the following marker</string>
+    <string name="marker_add_success">Marker added succesfully.</string>
+    <string name="marker_add_failure">Couldn\'t add marker, please try again.</string>
 </resources>
