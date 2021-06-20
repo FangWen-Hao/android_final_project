@@ -71,8 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor showAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        return data;
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
     public Cursor getData (int id){
