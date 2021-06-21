@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "com.matti.finalproject";
 
-    public MainActivity(FusedLocationProviderClient fusedLocationProviderClient) {
-        this.fusedLocationProviderClient = fusedLocationProviderClient;
+    public MainActivity() {
+        // this.fusedLocationProviderClient = fusedLocationProviderClient;
     }
 
 

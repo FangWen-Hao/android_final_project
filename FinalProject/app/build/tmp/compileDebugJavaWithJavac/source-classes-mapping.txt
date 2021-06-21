@@ -31,6 +31,9 @@ com/matti/finalproject/MapsActivity.java
 com/matti/finalproject/FirstFragment.java
  com.matti.finalproject.FirstFragment
  com.matti.finalproject.FirstFragment$1
+com/matti/finalproject/SilentContract.java
+ com.matti.finalproject.SilentContract
+ com.matti.finalproject.SilentContract$SilentEntry
 com/matti/finalproject/GeofenceBroadcastReceiver.java
  com.matti.finalproject.GeofenceBroadcastReceiver
 com/matti/finalproject/MainActivity.java
