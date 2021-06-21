@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL3 = "LATITUDE";
     public static final String COL4 = "LONGITUDE";
     public static final String COL5 = "MODE";
-    public int DataNumber;
+    public int DataNumber = 0;
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -37,7 +37,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String createTable = " CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " TITLE TEXT, SNIPPET TEXT, LATITUDE TEXT , LONGITUDE TEXT, MODE TEXT)";
         db.execSQL(createTable);
-        DataNumber = 0;
     }
 
     @Override
@@ -45,6 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+
+    public void parseDataNumber(int Int){DataNumber = Int;}
 
     public int getDataNumber(){
         return DataNumber;
@@ -78,6 +79,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
         return data;
+    }
+
+    public boolean checkID (int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            Cursor data = db.rawQuery("SELECT ID FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
+        }
+        catch (Exception e){ //Is this even the right exception?
+            return false;
+        }
+        return true;
+    }
+
+
+    public String getTitle (int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT TITLE FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
+        String returning = data.getString(data.getColumnIndex(COL1));
+        return returning;
+    }
+
+    public String getSnippet (int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT SNIPPET FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
+        String returning = data.getString(data.getColumnIndex(COL2));
+        return returning;
     }
 
     public String getLat (int id){
