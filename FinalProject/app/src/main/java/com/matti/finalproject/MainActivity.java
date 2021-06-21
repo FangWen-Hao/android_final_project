@@ -28,8 +28,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper DBHelper;
@@ -52,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "com.matti.finalproject";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,10 +108,10 @@ public class MainActivity extends AppCompatActivity {
                     DNumber ++;
                 }
                 else{
-                    Double markerLat = Double.parseDouble(DBHelper.getLat(i));
-                    Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
-                    Double diffLat = currentLatitude - markerLat;
-                    Double diffLong = currentLongitude - markerLong;
+                    double markerLat = Double.parseDouble(DBHelper.getLat(i));
+                    double markerLong = Double.parseDouble(DBHelper.getLongi(i));
+                    double diffLat = currentLatitude - markerLat;
+                    double diffLong = currentLongitude - markerLong;
                     Intent intent;
                     if (((diffLat < 0.0006) && (diffLat > 0))
                             || ((diffLat > -0.0006) && (diffLat < 0))
@@ -218,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
      * Handles the result of the request for location permissions.
      */
     // [START maps_current_place_on_request_permissions_result]
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,

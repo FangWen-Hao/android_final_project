@@ -14,7 +14,5 @@ public class SilenceBroadcastReceiver extends BroadcastReceiver {
         AudioManager audio = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
 
         audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-
-
     }
 }
