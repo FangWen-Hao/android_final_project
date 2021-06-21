@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 
-
-
 public class UnsilenceBroadcastReceiver extends BroadcastReceiver {
 
     @Override

@@ -20,12 +20,12 @@
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_volume_up_white_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout-v17_custom_info_contents.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout-v17\\custom_info_contents.xml"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_volume_off_white_24dp.xml.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_volume_off_white_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout-v17_custom_info_contents.xml.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout-v17\\custom_info_contents.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
@@ -36,24 +36,24 @@
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_action_refresh.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_action_refresh.png"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_volume_off_white_24dp.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_volume_off_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_action_refresh.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_action_refresh.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_action_refresh.xml.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_action_refresh.xml"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_action_add.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\drawable-hdpi\\ic_action_add.png"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_action_add.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\drawable-hdpi\\ic_action_add.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
@@ -140,20 +140,20 @@
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\layout\\fragment_second.xml"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_action_add.xml.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_action_add.xml"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_volume_off_white_24dp.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_volume_off_white_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_action_add.xml.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_action_add.xml"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_volume_up_white_24dp.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_volume_up_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
@@ -208,12 +208,12 @@
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_volume_up_white_24dp.png.flat",
         "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_volume_up_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",

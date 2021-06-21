@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.os.Bundle;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,6 +25,8 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "com.matti.finalproject";
+
+    public MainActivity(FusedLocationProviderClient fusedLocationProviderClient) {
+        this.fusedLocationProviderClient = fusedLocationProviderClient;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,14 +159,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private FusedLocationProviderClient mFusedLocationProviderClient;
+
     private void getDeviceLocation() {
         /*
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
          */
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         try {
             if (locationPermissionGranted) {
-                Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
+                final Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
                 locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
@@ -214,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
      * Handles the result of the request for location permissions.
      */
     // [START maps_current_place_on_request_permissions_result]
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
