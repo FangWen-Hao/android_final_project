@@ -31,3 +31,5 @@ com/matti/finalproject/MainActivity.java
  com.matti.finalproject.MainActivity
  com.matti.finalproject.MainActivity$1
  com.matti.finalproject.MainActivity$2
+com/matti/finalproject/AutoSilenceLocation.java
+ com.matti.finalproject.AutoSilenceLocation
