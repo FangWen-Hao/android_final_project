@@ -1,6 +1,7 @@
 package com.matti.finalproject;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
@@ -40,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
     private double currentLatitude;
     private double currentLongitude;
 
+    private static final String silencerFilter = "com.matti.finalproject.SilenceBroadcastReceiver";
+    private SilenceBroadcastReceiver Silencer;
+
+    private static final String unsilencerFilter = "com.matti.finalproject.UnsilenceBroadcastReceiver";
+    private UnsilenceBroadcastReceiver Unmute;
+
+    private int DataNumber = 0;
+    private final String DATA_KEY = "Data Number";
+
+    private SharedPreferences mPreferences;
+    private String sharedPrefFile = "com.matti.finalproject";
+
 
 
     @Override
@@ -58,27 +71,63 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         DBHelper = new DatabaseHelper(this);
+        Silencer = new SilenceBroadcastReceiver();
+        Unmute = new UnsilenceBroadcastReceiver();
+        registerReceiver(Silencer, new IntentFilter(silencerFilter));
+        registerReceiver(Unmute, new IntentFilter(unsilencerFilter));
+
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        DataNumber = mPreferences.getInt(DATA_KEY, 0);
+        DBHelper.parseDataNumber(DataNumber);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        DataNumber = DBHelper.getDataNumber();
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putInt(DATA_KEY, DataNumber);
+        preferencesEditor.apply();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        getLocationPermission();
         getDeviceLocation();
     }
 
-    private void SilencePhone() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(Silencer);
+        unregisterReceiver(Unmute);
+    }
+
+    private void SilencePhone() { //TODO: fix bug that crashes app
         int DNumber = DBHelper.getDataNumber();
-        for (int i = 0; DNumber > i; i++){
-            Double markerLat = Double.parseDouble(DBHelper.getLat(i));
-            Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
-            Double diffLat = currentLatitude - markerLat;
-            Double diffLong = currentLongitude - markerLong;
-            if (((diffLat < 0.0006) && (diffLat > 0))
-                    || ((diffLat > -0.0006) && (diffLat < 0))
-                    || ((diffLong < 0.0006)  && (diffLong > 0))
-                    || ((diffLong > -0.0006) && (diffLong < 0))){
-                //TODO: Silence the phone
-            }
+        for (int i = 1; i <= DNumber; i++){
+                if (!DBHelper.checkID(i)){
+                    i ++;
+                    DNumber ++;
+                }
+                else{
+                    Double markerLat = Double.parseDouble(DBHelper.getLat(i));
+                    Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
+                    Double diffLat = currentLatitude - markerLat;
+                    Double diffLong = currentLongitude - markerLong;
+                    Intent intent;
+                    if (((diffLat < 0.0006) && (diffLat > 0))
+                            || ((diffLat > -0.0006) && (diffLat < 0))
+                            || ((diffLong < 0.0006)  && (diffLong > 0))
+                            || ((diffLong > -0.0006) && (diffLong < 0))){
+                        intent = new Intent(silencerFilter);
+                    }
+                    else{
+                        intent = new Intent(unsilencerFilter);
+                    }
+                    sendBroadcast(intent);
+                }
         }
     }
 

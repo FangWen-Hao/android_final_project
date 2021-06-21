@@ -5,6 +5,7 @@ package com.matti.finalproject;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -101,6 +102,23 @@ public class MapsActivity extends AppCompatActivity
 
     private DatabaseHelper DBHelper;
 
+    private double currentLatitude;
+    private double currentLongitude;
+
+    private static final String silencerFilter = "com.matti.finalproject.SilenceBroadcastReceiver";
+    private SilenceBroadcastReceiver Silencer;
+
+    private static final String unsilencerFilter = "com.matti.finalproject.UnsilenceBroadcastReceiver";
+    private UnsilenceBroadcastReceiver Unmute;
+
+    private int DataNumber = 0;
+    private final String DATA_KEY = "Data Number";
+
+    private SharedPreferences mPreferences;
+    private String sharedPrefFile = "com.matti.finalproject";
+
+    private Marker SelectedPlaceMarker;
+
     // [START maps_current_place_on_create]
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +159,14 @@ public class MapsActivity extends AppCompatActivity
         dataModel.put("longitude", 100.0f);
 
         DBHelper = new DatabaseHelper(this);
+        Silencer = new SilenceBroadcastReceiver();
+        Unmute = new UnsilenceBroadcastReceiver();
+        registerReceiver(Silencer, new IntentFilter(silencerFilter));
+        registerReceiver(Unmute, new IntentFilter(unsilencerFilter));
+
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        DataNumber = mPreferences.getInt(DATA_KEY, 0);
+        DBHelper.parseDataNumber(DataNumber);
 
     }
     // [END maps_current_place_on_create]
@@ -159,19 +185,48 @@ public class MapsActivity extends AppCompatActivity
     }
     // [END maps_current_place_on_save_instance_state]
 
+
     @Override
     protected void onPause() {
         super.onPause();
-        //TODO: code to pass markers list to database (?)
+        DataNumber = DBHelper.getDataNumber();
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putInt(DATA_KEY, DataNumber);
+        preferencesEditor.apply();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        getDeviceLocation();
         if(map != null){ //prevent crashing if the map doesn't exist yet (eg. on starting activity)
             map.clear();
-            // TODO: add markers from database to the map
+            int DNumber = DBHelper.getDataNumber();
+            for (int i = 0; i <= DNumber; i++){
+                if (!DBHelper.checkID(i)){
+                    i ++;
+                    DNumber ++;
+                }
+                else {
+                    String title = DBHelper.getTitle(i);
+                    String snippet = DBHelper.getSnippet(i);
+                    Double markerLat = Double.parseDouble(DBHelper.getLat(i));
+                    Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
+                    Marker marker = map.addMarker(new MarkerOptions()
+                            .position(new LatLng(markerLat, markerLong))
+                            .title(title)
+                            .snippet(snippet));
+                    markers.put(marker, dataModel);
+                }
+            }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(Silencer);
+        unregisterReceiver(Unmute);
     }
 
     /**
@@ -206,11 +261,13 @@ public class MapsActivity extends AppCompatActivity
             @Override
             public void onMapClick(LatLng point) {
 
-                map.clear();
-                Marker marker = map.addMarker(new MarkerOptions()
+                if(SelectedPlaceMarker != null){
+                    SelectedPlaceMarker.remove();
+                }
+                SelectedPlaceMarker = map.addMarker(new MarkerOptions()
                         .position(point)
                         .title("Selected place"));
-                markers.put(marker, dataModel);
+                markers.put(SelectedPlaceMarker, dataModel);
             }
         });
 
@@ -247,6 +304,7 @@ public class MapsActivity extends AppCompatActivity
                     map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                         @Override
                         public void onInfoWindowClick(@NonNull Marker marker) {
+                            String title = "My Marker " + (DataNumber+1);
                                 if (DBHelper.addData(
                                         marker.getTitle(),
                                         marker.getSnippet(),
@@ -255,6 +313,8 @@ public class MapsActivity extends AppCompatActivity
                                         "Silent"
                                 )){
                                     addMarker.setText(getString(R.string.marker_add_success));
+                                    DataNumber += 1;
+                                    DBHelper.parseDataNumber(DataNumber);
                                 }
                                 else{
                                     addMarker.setText(getString(R.string.marker_add_failure));
@@ -308,6 +368,9 @@ public class MapsActivity extends AppCompatActivity
                                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(lastKnownLocation.getLatitude(),
                                                 lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                                currentLatitude = lastKnownLocation.getLatitude();
+                                currentLongitude = lastKnownLocation.getLongitude();
+                                SilencePhone();
                             }
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
@@ -513,5 +576,32 @@ public class MapsActivity extends AppCompatActivity
         }
     }
     // [END maps_current_place_update_location_ui]
+
+    private void SilencePhone() { //TODO: fix bug
+        int DNumber = DBHelper.getDataNumber();
+        for (int i = 0; i <= DNumber; i++){
+            if (!DBHelper.checkID(i)){
+                i ++;
+                DNumber ++;
+            }
+            else{
+                Double markerLat = Double.parseDouble(DBHelper.getLat(i));
+                Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
+                Double diffLat = currentLatitude - markerLat;
+                Double diffLong = currentLongitude - markerLong;
+                Intent intent;
+                if (((diffLat < 0.0006) && (diffLat > 0))
+                        || ((diffLat > -0.0006) && (diffLat < 0))
+                        || ((diffLong < 0.0006)  && (diffLong > 0))
+                        || ((diffLong > -0.0006) && (diffLong < 0))){
+                    intent = new Intent(silencerFilter);
+                }
+                else{
+                    intent = new Intent(unsilencerFilter);
+                }
+                sendBroadcast(intent);
+            }
+        }
+    }
 }
 
