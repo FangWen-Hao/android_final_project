@@ -46,18 +46,12 @@ public class MarkersAdapter extends RecyclerView.Adapter<MarkersAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Marker marker = mMarkersData.get(position);
-        holder.titleView.setText(mMarkersData.get(position).getTitle());
-        holder.snippetView.setText(mMarkersData.get(position).getSnippet());
-        holder.longitudeView.setText("Longitude : " + mMarkersData.get(position).getLongitude());
-        holder.latitudeView.setText("Latitude : " + mMarkersData.get(position).getLatitude());
+        holder.titleView.setText(marker.getTitle());
+        holder.snippetView.setText(marker.getSnippet());
+            holder.longitudeView.setText("");
+            holder.longitudeView.setText(marker.getLongitude());
+            holder.latitudeView.setText(marker.getLatitude());
     }
-
-
-
-
-
-
-
 
     @Override
     public int getItemCount() {

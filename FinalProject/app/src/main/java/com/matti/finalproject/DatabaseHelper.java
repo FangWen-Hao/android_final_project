@@ -26,7 +26,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL3 = "LATITUDE";
     public static final String COL4 = "LONGITUDE";
     public static final String COL5 = "MODE";
-    public int DataNumber = 0;
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -35,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = " CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " TITLE TEXT, SNIPPET TEXT, LATITUDE TEXT , LONGITUDE TEXT, MODE TEXT)";
+                " TITLE TEXT, SNIPPET TEXT, LATITUDE BLOB , LONGITUDE BLOB, MODE TEXT)";
         db.execSQL(createTable);
     }
 
@@ -45,13 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void parseDataNumber(int Int){DataNumber = Int;}
 
-    public int getDataNumber(){
-        return DataNumber;
-    }
-
-    public boolean addData(String title, String snippet, String latitude, String longitude, String mode){
+    public boolean addData(String title, String snippet, Double latitude, Double longitude, String mode){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1,title);
@@ -65,7 +59,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             return false;
         }else{
-            DataNumber += 1 ;
             return true;
         }
     }
@@ -75,10 +68,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public Cursor getData (int id){
+    public int getData (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
-        return data;
+        data.moveToFirst();
+        int returning = data.getInt(0);
+        return returning;
     }
 
     public boolean checkID (int id){
@@ -96,6 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String getTitle (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        data.moveToFirst();
         String returning = data.getString(1);
         return returning;
     }
@@ -103,21 +99,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String getSnippet (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        data.moveToFirst();
         String returning = data.getString(2);
         return returning;
     }
 
-    public String getLat (int id){
+    public double getLat (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
-        String returning = data.getString(3);
+        data.moveToFirst();
+        double returning = data.getDouble(3);
         return returning;
     }
 
-    public String getLongi (int id){
+    public double getLong(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
-        String returning = data.getString(4);
+        data.moveToFirst();
+        double returning = data.getDouble(4);
         return returning;
     }
 
@@ -150,7 +149,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Integer deleteData(String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        DataNumber -= 1;
         return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
     }
 

@@ -22,21 +22,21 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.matti.finalproject.MovableFab
+        android:id="@+id/fab_main"
+        android:contentDescription="@string/fab_refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_action_refresh" />
 
     <Button
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
         android:onClick="launchMap"
-        android:text="@string/launchMapText"
-        android:layout_gravity="bottom|center_horizontal" />
+        android:text="@string/launchMapText" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

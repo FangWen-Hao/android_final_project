@@ -3,7 +3,6 @@ package com.matti.finalproject;
 // https://developers.google.com/maps/documentation/android-sdk/current-place-tutorial#java
 // https://stackoverflow.com/questions/43100365/how-to-refresh-a-google-map-manually
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -121,10 +120,13 @@ public class MapsActivity extends AppCompatActivity
     private Marker SelectedPlaceMarker;
     private AudioManager audio;
 
+
     // [START maps_current_place_on_create]
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         // [START_EXCLUDE silent]
         // [START maps_current_place_on_create_save_instance_state]
@@ -168,8 +170,8 @@ public class MapsActivity extends AppCompatActivity
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
-        DBHelper.parseDataNumber(DataNumber);
         audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
+        getLocationPermission();
         requestNotificationPolicyAccess();
 
     }
@@ -193,7 +195,6 @@ public class MapsActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        DataNumber = DBHelper.getDataNumber();
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putInt(DATA_KEY, DataNumber);
         preferencesEditor.apply();
@@ -202,6 +203,7 @@ public class MapsActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+        DataNumber = mPreferences.getInt(DATA_KEY, 0);
         getDeviceLocation();
         addDBMarkers();
     }
@@ -209,21 +211,22 @@ public class MapsActivity extends AppCompatActivity
     private void addDBMarkers() {
         if (map != null) { //prevent crashing if the map doesn't exist yet (eg. on starting activity)
             map.clear();
-            int DNumber = DBHelper.getDataNumber();
-            for (int i = 1; i <= DNumber; i++) {
-                if (!DBHelper.checkID(i)) {
-                    i++;
-                    DNumber++;
-                } else {
-                    String title = DBHelper.getTitle(i);
-                    String snippet = DBHelper.getSnippet(i);
-                    Double markerLat = Double.parseDouble(DBHelper.getLat(i));
-                    Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
-                    Marker marker = map.addMarker(new MarkerOptions()
+            int DNumber = DataNumber;
+            if (DNumber != 0) {
+                for (int i = 1; i <= DNumber; i++) {
+                    if (!DBHelper.checkID(i)) {
+                        i++;
+                        DNumber++;
+                    } else {
+                        String title = DBHelper.getTitle(i);
+                        String snippet = DBHelper.getSnippet(i);
+                        Double markerLat = DBHelper.getLat(i);
+                        Double markerLong = DBHelper.getLong(i);
+                        map.addMarker(new MarkerOptions()
                             .position(new LatLng(markerLat, markerLong))
                             .title(title)
                             .snippet(snippet));
-                    markers.put(marker, dataModel);
+                    }
                 }
             }
         }
@@ -260,9 +263,13 @@ public class MapsActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onResume();
+                resetUpdate();
             }
         });
+
+        // Turn on the My Location layer and the related control on the map.
+        updateLocationUI();
+        // Get the current location of the device and set the position of the map.
 
         map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
@@ -284,6 +291,7 @@ public class MapsActivity extends AppCompatActivity
         // info window contents.
         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
+
             @Override
             // Return null here, so that getInfoContents() is called next.
             public View getInfoWindow(Marker arg0) {
@@ -300,57 +308,58 @@ public class MapsActivity extends AppCompatActivity
                 title.setText(marker.getTitle());
 
                 TextView snippet = infoWindow.findViewById(R.id.snippet);
+                String MySnippet = marker.getSnippet();
                 snippet.setText(marker.getSnippet());
 
                 TextView coordinates = infoWindow.findViewById(R.id.coordinates);
+                Double MyLat = marker.getPosition().latitude;
+                Double MyLong = marker.getPosition().longitude;
                 coordinates.setText("Latitude: " + marker.getPosition().latitude + "\n Longitude: " + marker.getPosition().longitude);
 
                 TextView addMarker = infoWindow.findViewById(R.id.addMsg);
                 if (marker.getTitle().equals("Selected place")) {
                     addMarker.setText(getString(R.string.add_marker));
+                }
+                else {
+                    addMarker.setText("");
+                }
                     map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                         @Override
                         public void onInfoWindowClick(@NonNull Marker marker) {
-                            String title = "My Marker " + (DataNumber + 1);
-                            if (DBHelper.addData(
-                                    title,
-                                    marker.getSnippet(),
-                                    Double.toString(marker.getPosition().latitude),
-                                    Double.toString(marker.getPosition().longitude),
-                                    "Silent"
-                            )) {
-                                DataNumber += 1;
-                                DBHelper.parseDataNumber(DataNumber);
-                                Toast.makeText(MapsActivity.this, getString(R.string.marker_add_success), Toast.LENGTH_LONG).show();
-                                map.addMarker(new MarkerOptions()
-                                .title(title)
-                                .snippet(marker.getSnippet())
-                                .position(marker.getPosition()));
-                            } else {
-                                Toast.makeText(MapsActivity.this, getString(R.string.marker_add_failure), Toast.LENGTH_LONG).show();
+                            if (marker.getTitle().equals("Selected place")) {
+                                String MyTitle = "My Marker (" + (DataNumber + 1) + ")"; //TODO: fix "My Marker 1" repeating twice
+                                if (DBHelper.addData(
+                                        MyTitle,
+                                        MySnippet,
+                                        MyLat,
+                                        MyLong,
+                                        "Silent")) {
+                                    DataNumber += 1;
+                                    MyTitle = DBHelper.getTitle(DataNumber);
+                                    map.addMarker(new MarkerOptions()
+                                            .title(MyTitle)
+                                            .snippet(MySnippet)
+                                            .position(new LatLng(MyLat, MyLong)));
+                                    if (SelectedPlaceMarker != null) {
+                                        SelectedPlaceMarker.remove();
+                                    }
+                                    Toast.makeText(MapsActivity.this, getString(R.string.marker_add_success), Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(MapsActivity.this, getString(R.string.marker_add_failure), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                            else{
+                                //TODO: add delete code
                             }
                         }
                     });
-                } else {
-                    addMarker.setText("");
-                }
-
                 return infoWindow;
             }
         });
 
-
+        onPause();
+        onResume();
         // [END map_current_place_set_info_window_adapter]
-
-        // Prompt the user for permission.
-        getLocationPermission();
-        // [END_EXCLUDE]
-
-        // Turn on the My Location layer and the related control on the map.
-        updateLocationUI();
-
-        // Get the current location of the device and set the position of the map.
-        getDeviceLocation();
     }
 
     //https://github.com/adrcotfas/Goodtime/commit/9fae5701b6e851d6fa5386bcbc71d63fe6e1d87d
@@ -395,6 +404,8 @@ public class MapsActivity extends AppCompatActivity
                                 currentLatitude = lastKnownLocation.getLatitude();
                                 currentLongitude = lastKnownLocation.getLongitude();
                                 SilencePhone();
+//                                Log.d(TAG, "currentLatitude = " + currentLatitude); For debug
+//                                Log.d(TAG, "currentLongitude = " + currentLongitude); For debug
                             }
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
@@ -600,24 +611,24 @@ public class MapsActivity extends AppCompatActivity
     // [END maps_current_place_update_location_ui]
 
     private void SilencePhone() {
-        int DNumber = DBHelper.getDataNumber();
+        int DNumber = DataNumber;
         boolean ToSilence = false;
-        for (int i = 1; i <= DNumber; i++){
-            if (!DBHelper.checkID(i)){
-                i ++;
-                DNumber ++;
-            }
-            else{
-                Double markerLat = Double.parseDouble(DBHelper.getLat(i));
-                Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
-                Double diffLat = currentLatitude - markerLat;
-                Double diffLong = currentLongitude - markerLong;
-                Intent intent;
-                if (((diffLat < 0.0006) && (diffLat > 0))
-                        || ((diffLat > -0.0006) && (diffLat < 0))
-                        || ((diffLong < 0.0006)  && (diffLong > 0))
-                        || ((diffLong > -0.0006) && (diffLong < 0))){
-                    ToSilence = true;
+        if (DNumber != 0) {
+            for (int i = 1; i <= DNumber; i++) {
+                if (!DBHelper.checkID(i)) {
+                    i++;
+                    DNumber++;
+                } else {
+                    Double markerLat = DBHelper.getLat(i);
+                    Double markerLong = DBHelper.getLong(i);
+                    Double diffLatSqr = currentLatitude - markerLat;
+                    diffLatSqr *= diffLatSqr;
+                    Double diffLongSqr = currentLongitude - markerLong;
+                    diffLongSqr *= diffLongSqr;
+                    if ((diffLatSqr < 0.00000036)
+                            || (diffLongSqr < 0.00000036)) {
+                        ToSilence = true;
+                    }
                 }
             }
         }
@@ -637,6 +648,11 @@ public class MapsActivity extends AppCompatActivity
                 audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
             }
         }
+    }
+
+    private void resetUpdate(){
+        onPause();
+        onResume();
     }
 }
 
