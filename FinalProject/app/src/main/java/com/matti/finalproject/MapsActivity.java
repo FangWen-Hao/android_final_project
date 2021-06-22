@@ -199,6 +199,10 @@ public class MapsActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         getDeviceLocation();
+        addDBMarkers();
+    }
+
+    private void addDBMarkers() {
         if(map != null){ //prevent crashing if the map doesn't exist yet (eg. on starting activity)
             map.clear();
             int DNumber = DBHelper.getDataNumber();
@@ -312,12 +316,14 @@ public class MapsActivity extends AppCompatActivity
                                         Double.toString(marker.getPosition().longitude),
                                         "Silent"
                                 )){
-                                    addMarker.setText(getString(R.string.marker_add_success));
                                     DataNumber += 1;
                                     DBHelper.parseDataNumber(DataNumber);
+                                    Toast.makeText(MapsActivity.this, getString(R.string.marker_add_success), Toast.LENGTH_LONG).show();
+                                    addDBMarkers();
                                 }
                                 else{
-                                    addMarker.setText(getString(R.string.marker_add_failure));
+                                    Toast.makeText(MapsActivity.this, getString(R.string.marker_add_failure), Toast.LENGTH_LONG).show();
+                                    //TODO: make it a toast
                                 }
                         }
                     });
