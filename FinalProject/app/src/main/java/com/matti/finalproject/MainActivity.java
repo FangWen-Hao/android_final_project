@@ -1,26 +1,29 @@
 package com.matti.finalproject;
 
+import android.annotation.TargetApi;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ArrayList<Marker> mMarkersData;
     private MarkersAdapter mAdapter;
+    private AudioManager audio;
+    private final int gridColumnCount = 1;
 
     public MainActivity() {
         // this.fusedLocationProviderClient = fusedLocationProviderClient;
@@ -72,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = findViewById(R.id.fab_main);
+        fab.setContentDescription(getString(R.string.fab_refresh));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetUpdate();
+            }
+        });
+
         DBHelper = new DatabaseHelper(this);
         Silencer = new SilenceBroadcastReceiver();
         Unmute = new UnsilenceBroadcastReceiver();
@@ -80,43 +94,47 @@ public class MainActivity extends AppCompatActivity {
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
-        DBHelper.parseDataNumber(DataNumber);
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMarkersData = new ArrayList<>();
         mAdapter = new MarkersAdapter(this, mMarkersData);
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         initializeData();
+        audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
+        requestNotificationPolicyAccess();
 
 
     }
 
     private void initializeData() {
-            int DNumber = DBHelper.getDataNumber();
-            for (int i = 0; i <= DNumber; i++){
-                if (!DBHelper.checkID(i)){
-                    i ++;
-                    DNumber ++;
-                }
-                else {
-                    String title = DBHelper.getTitle(i);
-                    String snippet = DBHelper.getSnippet(i);
-                    String markerLat = DBHelper.getLat(i);
-                    String markerLong = DBHelper.getLongi(i);
-                    mMarkersData.add(new Marker(title, snippet, markerLat, markerLong));
+            int DNumber = DataNumber;
+            if (DataNumber == 0) {
+                mMarkersData.add(new Marker("No marker has been added!", "Press the button below to go to the map and add markers", "", ""));
+            }
+            else {
+                for (int i = 1; i <= DNumber; i++) {
+                    if (!DBHelper.checkID(i)) {
+                        i++;
+                        DNumber++;
+                    } else {
+                        String title = DBHelper.getTitle(i);
+                        String snippet = DBHelper.getSnippet(i);
+                        String markerLat = "Latitude : " + DBHelper.getLat(i);
+                        String markerLong = "Longitude : " + DBHelper.getLong(i);
+                        mMarkersData.add(new Marker(title, snippet, markerLat, markerLong));
+                    }
                 }
             }
-        if (mMarkersData == null) {
-            mMarkersData.add(new Marker("No marker has been added!", "Press the button below to go to the map and add markers", "", ""));
-        }
         mAdapter.notifyDataSetChanged();
+        mMarkersData = new ArrayList<>();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        DataNumber = DBHelper.getDataNumber();
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putInt(DATA_KEY, DataNumber);
         preferencesEditor.apply();
@@ -125,9 +143,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        DataNumber = mPreferences.getInt(DATA_KEY, 0);
         getLocationPermission();
         getDeviceLocation();
+        mAdapter = new MarkersAdapter(this, mMarkersData);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         initializeData();
+
     }
 
     @Override
@@ -137,31 +160,59 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(Unmute);
     }
 
-    private void SilencePhone() { //TODO: fix bug that crashes app
-        int DNumber = DBHelper.getDataNumber();
-        for (int i = 1; i <= DNumber; i++){
-                if (!DBHelper.checkID(i)){
-                    i ++;
-                    DNumber ++;
-                }
-                else{
-                    double markerLat = Double.parseDouble(DBHelper.getLat(i));
-                    double markerLong = Double.parseDouble(DBHelper.getLongi(i));
-                    double diffLat = currentLatitude - markerLat;
-                    double diffLong = currentLongitude - markerLong;
-                    Intent intent;
-                    if (((diffLat < 0.0006) && (diffLat > 0))
-                            || ((diffLat > -0.0006) && (diffLat < 0))
-                            || ((diffLong < 0.0006)  && (diffLong > 0))
-                            || ((diffLong > -0.0006) && (diffLong < 0))){
-                        intent = new Intent(silencerFilter);
+    private void SilencePhone() {
+        int DNumber = DataNumber;
+        boolean ToSilence = false;
+        if (DNumber != 0) {
+            for (int i = 1; i <= DNumber; i++) {
+                if (!DBHelper.checkID(i)) {
+                    i++;
+                    DNumber++;
+                } else {
+                    Double markerLat = DBHelper.getLat(i);
+                    Double markerLong = DBHelper.getLong(i);
+                    Double diffLatSqr = currentLatitude - markerLat;
+                    diffLatSqr *= diffLatSqr;
+                    Double diffLongSqr = currentLongitude - markerLong;
+                    diffLongSqr *= diffLongSqr;
+                    if ((diffLatSqr < 0.00000036)
+                            || (diffLongSqr < 0.00000036)) {
+                        ToSilence = true;
                     }
-                    else{
-                        intent = new Intent(unsilencerFilter);
-                    }
-                    sendBroadcast(intent);
                 }
+            }
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
+            if (ToSilence){
+                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+            else {
+                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        }
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+            if (ToSilence){
+                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+            else {
+                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        }
+    }
+
+    private void requestNotificationPolicyAccess() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !isNotificationPolicyAccessGranted()) {
+            Intent intent = new Intent(android.provider.Settings.
+                    ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+            startActivity(intent);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private boolean isNotificationPolicyAccessGranted()  {
+        NotificationManager notificationManager = (NotificationManager)
+                MainActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);
+        return notificationManager.isNotificationPolicyAccessGranted();
     }
 
     @Override
@@ -271,6 +322,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     // [END maps_current_place_on_request_permissions_result]
+
+    private void resetUpdate(){
+        onPause();
+        initializeData();
+        onResume();
+    }
 
 
 }

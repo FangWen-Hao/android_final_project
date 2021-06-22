@@ -30,3 +30,4 @@ com/matti/finalproject/Marker.java
 com/matti/finalproject/MainActivity.java
  com.matti.finalproject.MainActivity
  com.matti.finalproject.MainActivity$1
+ com.matti.finalproject.MainActivity$2
