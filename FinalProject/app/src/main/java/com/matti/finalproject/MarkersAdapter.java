@@ -53,6 +53,12 @@ public class MarkersAdapter extends RecyclerView.Adapter<MarkersAdapter.ViewHold
     }
 
 
+
+
+
+
+
+
     @Override
     public int getItemCount() {
         return mMarkersData.size();

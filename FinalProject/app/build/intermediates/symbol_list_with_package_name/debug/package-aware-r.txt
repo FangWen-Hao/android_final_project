@@ -2176,8 +2176,6 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
-id First2Fragment
-id FirstFragment
 id META
 id NO_DEBUG
 id SHIFT
@@ -2185,8 +2183,6 @@ id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
-id Second2Fragment
-id SecondFragment
 id TOP_END
 id TOP_START
 id accelerate
@@ -2223,10 +2219,6 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
-id action_First2Fragment_to_Second2Fragment
-id action_FirstFragment_to_SecondFragment
-id action_Second2Fragment_to_First2Fragment
-id action_SecondFragment_to_FirstFragment
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -2247,6 +2239,7 @@ id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
+id activity_main
 id add
 id addMsg
 id adjust_height
@@ -2272,7 +2265,6 @@ id bottom
 id bounce
 id buttonPanel
 id button_first
-id button_second
 id cache_measures
 id cancel_button
 id center
@@ -2380,7 +2372,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id info
 id invisible
 id inward
@@ -2391,6 +2382,7 @@ id jumpToStart
 id labelGroup
 id labeled
 id largeLabel
+id latitudeListItem
 id layout
 id left
 id leftToRight
@@ -2400,6 +2392,7 @@ id line3
 id linear
 id listMode
 id list_item
+id longitudeListItem
 id map
 id masked
 id material_clock_display
@@ -2456,7 +2449,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id nav_controller_view_tag
-id nav_graph
 id nav_host_fragment_container
 id navigation_header_container
 id never
@@ -2508,7 +2500,6 @@ id radio
 id ratio
 id rectangles
 id recyclerView
-id relativeLayout
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2554,6 +2545,7 @@ id snackbar_text
 id snap
 id snapMargins
 id snippet
+id snippetListItem
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -2601,7 +2593,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2611,11 +2602,10 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
-id textview_first
-id textview_second
 id time
 id title
 id titleDividerNoCustom
+id titleListItem
 id title_template
 id toggle
 id toolbar
@@ -2730,7 +2720,6 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_first
-layout fragment_second
 layout list_item
 layout material_chip_input_combo
 layout material_clock_display
@@ -2809,7 +2798,6 @@ layout text_view_without_line_height
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round
-navigation nav_graph
 plurals mtrl_badge_content_description
 raw places_keep
 string abc_action_bar_home_description
@@ -2845,7 +2833,6 @@ string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
-string button_text
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -2878,10 +2865,12 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string first_fragment_label
 string google_maps_key
+string hello_first_fragment
 string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string launchMapText
 string marker_add_failure
 string marker_add_success
 string material_clock_display_divider
@@ -2954,7 +2943,6 @@ string previous
 string search_menu_title
 string second_fragment_label
 string status_bar_notification_info_overflow
-string text_title
 string title_activity_maps
 string title_activity_super_map
 style AlertDialog_AppCompat

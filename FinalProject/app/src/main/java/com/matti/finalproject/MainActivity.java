@@ -9,6 +9,8 @@ import android.os.Bundle;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.View;
@@ -26,6 +30,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "com.matti.finalproject";
 
+    private RecyclerView mRecyclerView;
+    private ArrayList<Marker> mMarkersData;
+    private MarkersAdapter mAdapter;
+
     public MainActivity() {
         // this.fusedLocationProviderClient = fusedLocationProviderClient;
     }
@@ -63,14 +72,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DBHelper = new DatabaseHelper(this);
         Silencer = new SilenceBroadcastReceiver();
         Unmute = new UnsilenceBroadcastReceiver();
@@ -80,6 +81,36 @@ public class MainActivity extends AppCompatActivity {
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
         DBHelper.parseDataNumber(DataNumber);
+
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mMarkersData = new ArrayList<>();
+        mAdapter = new MarkersAdapter(this, mMarkersData);
+        mRecyclerView.setAdapter(mAdapter);
+        initializeData();
+
+
+    }
+
+    private void initializeData() {
+            int DNumber = DBHelper.getDataNumber();
+            for (int i = 0; i <= DNumber; i++){
+                if (!DBHelper.checkID(i)){
+                    i ++;
+                    DNumber ++;
+                }
+                else {
+                    String title = DBHelper.getTitle(i);
+                    String snippet = DBHelper.getSnippet(i);
+                    String markerLat = DBHelper.getLat(i);
+                    String markerLong = DBHelper.getLongi(i);
+                    mMarkersData.add(new Marker(title, snippet, markerLat, markerLong));
+                }
+            }
+        if (mMarkersData == null) {
+            mMarkersData.add(new Marker("No marker has been added!", "Press the button below to go to the map and add markers", "", ""));
+        }
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -96,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         getLocationPermission();
         getDeviceLocation();
+        initializeData();
     }
 
     @Override
