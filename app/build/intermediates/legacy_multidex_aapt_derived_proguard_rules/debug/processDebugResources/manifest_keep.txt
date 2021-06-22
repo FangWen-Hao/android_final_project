@@ -1,4 +1,0 @@
-# Referenced at C:\Users\Irene Zheng\Desktop\android_final_project\Smart-Silent-master\Smart-Silent-master\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:49
--keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at C:\Users\Irene Zheng\Desktop\android_final_project\Smart-Silent-master\Smart-Silent-master\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:49
--keep class androidx.multidex.MultiDexApplication { <init>(); }

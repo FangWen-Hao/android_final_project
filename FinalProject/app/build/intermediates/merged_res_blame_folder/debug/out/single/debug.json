@@ -120,12 +120,17 @@
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_volume_up_white_24dp.png"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+=======
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_volume_up_white_24dp.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_volume_up_white_24dp.png"
+>>>>>>> cff88ab5cc50d9bf2a54b2c3126c78b32815b404
     },
     {
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -136,12 +141,17 @@
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_volume_off_white_24dp.xml.flat",
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_volume_off_white_24dp.xml"
     },
     {
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_action_add.png.flat",
         "source": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\src\\main\\res\\drawable-hdpi\\ic_action_add.png"
+=======
+        "merged": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_volume_off_white_24dp.png.flat",
+        "source": "C:\\Users\\Irene Zheng\\Desktop\\android_final_project\\FinalProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_volume_off_white_24dp.png"
+>>>>>>> cff88ab5cc50d9bf2a54b2c3126c78b32815b404
     },
     {
         "merged": "C:\\Users\\Matti Lefin\\Documents\\GitHub\\android_final_project-main\\FinalProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_volume_off_white_24dp.png.flat",
