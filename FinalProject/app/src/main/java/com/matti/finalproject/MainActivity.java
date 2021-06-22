@@ -1,10 +1,15 @@
 package com.matti.finalproject;
 
+import android.annotation.TargetApi;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -59,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ArrayList<Marker> mMarkersData;
     private MarkersAdapter mAdapter;
+    private AudioManager audio;
 
     public MainActivity() {
         // this.fusedLocationProviderClient = fusedLocationProviderClient;
@@ -88,13 +94,15 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MarkersAdapter(this, mMarkersData);
         mRecyclerView.setAdapter(mAdapter);
         initializeData();
+        audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
+        requestNotificationPolicyAccess();
 
 
     }
 
     private void initializeData() {
             int DNumber = DBHelper.getDataNumber();
-            for (int i = 0; i <= DNumber; i++){
+            for (int i = 1; i <= DNumber; i++){
                 if (!DBHelper.checkID(i)){
                     i ++;
                     DNumber ++;
@@ -137,31 +145,59 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(Unmute);
     }
 
-    private void SilencePhone() { //TODO: fix bug that crashes app
+    private void SilencePhone() {
         int DNumber = DBHelper.getDataNumber();
+        boolean ToSilence = false;
         for (int i = 1; i <= DNumber; i++){
-                if (!DBHelper.checkID(i)){
-                    i ++;
-                    DNumber ++;
+            if (!DBHelper.checkID(i)){
+                i ++;
+                DNumber ++;
+            }
+            else{
+                Double markerLat = Double.parseDouble(DBHelper.getLat(i));
+                Double markerLong = Double.parseDouble(DBHelper.getLongi(i));
+                Double diffLat = currentLatitude - markerLat;
+                Double diffLong = currentLongitude - markerLong;
+                Intent intent;
+                if (((diffLat < 0.0006) && (diffLat > 0))
+                        || ((diffLat > -0.0006) && (diffLat < 0))
+                        || ((diffLong < 0.0006)  && (diffLong > 0))
+                        || ((diffLong > -0.0006) && (diffLong < 0))){
+                    ToSilence = true;
                 }
-                else{
-                    double markerLat = Double.parseDouble(DBHelper.getLat(i));
-                    double markerLong = Double.parseDouble(DBHelper.getLongi(i));
-                    double diffLat = currentLatitude - markerLat;
-                    double diffLong = currentLongitude - markerLong;
-                    Intent intent;
-                    if (((diffLat < 0.0006) && (diffLat > 0))
-                            || ((diffLat > -0.0006) && (diffLat < 0))
-                            || ((diffLong < 0.0006)  && (diffLong > 0))
-                            || ((diffLong > -0.0006) && (diffLong < 0))){
-                        intent = new Intent(silencerFilter);
-                    }
-                    else{
-                        intent = new Intent(unsilencerFilter);
-                    }
-                    sendBroadcast(intent);
-                }
+            }
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
+            if (ToSilence){
+                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+            else {
+                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        }
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+            if (ToSilence){
+                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+            else {
+                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        }
+    }
+
+    private void requestNotificationPolicyAccess() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !isNotificationPolicyAccessGranted()) {
+            Intent intent = new Intent(android.provider.Settings.
+                    ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+            startActivity(intent);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private boolean isNotificationPolicyAccessGranted()  {
+        NotificationManager notificationManager = (NotificationManager)
+                MainActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);
+        return notificationManager.isNotificationPolicyAccessGranted();
     }
 
     @Override

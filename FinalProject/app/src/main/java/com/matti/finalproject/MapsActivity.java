@@ -3,22 +3,23 @@ package com.matti.finalproject;
 // https://developers.google.com/maps/documentation/android-sdk/current-place-tutorial#java
 // https://stackoverflow.com/questions/43100365/how-to-refresh-a-google-map-manually
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +50,7 @@ import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -118,6 +119,7 @@ public class MapsActivity extends AppCompatActivity
     private String sharedPrefFile = "com.matti.finalproject";
 
     private Marker SelectedPlaceMarker;
+    private AudioManager audio;
 
     // [START maps_current_place_on_create]
     @Override
@@ -167,6 +169,8 @@ public class MapsActivity extends AppCompatActivity
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
         DBHelper.parseDataNumber(DataNumber);
+        audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
+        requestNotificationPolicyAccess();
 
     }
     // [END maps_current_place_on_create]
@@ -203,15 +207,14 @@ public class MapsActivity extends AppCompatActivity
     }
 
     private void addDBMarkers() {
-        if(map != null){ //prevent crashing if the map doesn't exist yet (eg. on starting activity)
+        if (map != null) { //prevent crashing if the map doesn't exist yet (eg. on starting activity)
             map.clear();
             int DNumber = DBHelper.getDataNumber();
-            for (int i = 0; i <= DNumber; i++){
-                if (!DBHelper.checkID(i)){
-                    i ++;
-                    DNumber ++;
-                }
-                else {
+            for (int i = 1; i <= DNumber; i++) {
+                if (!DBHelper.checkID(i)) {
+                    i++;
+                    DNumber++;
+                } else {
                     String title = DBHelper.getTitle(i);
                     String snippet = DBHelper.getSnippet(i);
                     Double markerLat = Double.parseDouble(DBHelper.getLat(i));
@@ -257,7 +260,7 @@ public class MapsActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    onResume();
+                onResume();
             }
         });
 
@@ -265,7 +268,7 @@ public class MapsActivity extends AppCompatActivity
             @Override
             public void onMapClick(LatLng point) {
 
-                if(SelectedPlaceMarker != null){
+                if (SelectedPlaceMarker != null) {
                     SelectedPlaceMarker.remove();
                 }
                 SelectedPlaceMarker = map.addMarker(new MarkerOptions()
@@ -300,42 +303,41 @@ public class MapsActivity extends AppCompatActivity
                 snippet.setText(marker.getSnippet());
 
                 TextView coordinates = infoWindow.findViewById(R.id.coordinates);
-                coordinates.setText("Latitude: " + marker.getPosition().latitude + "\n Longitude: "+ marker.getPosition().longitude);
+                coordinates.setText("Latitude: " + marker.getPosition().latitude + "\n Longitude: " + marker.getPosition().longitude);
 
                 TextView addMarker = infoWindow.findViewById(R.id.addMsg);
-                if (marker.getTitle().equals("Selected place")){
+                if (marker.getTitle().equals("Selected place")) {
                     addMarker.setText(getString(R.string.add_marker));
                     map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                         @Override
                         public void onInfoWindowClick(@NonNull Marker marker) {
-                            String title = "My Marker " + (DataNumber+1);
-                                if (DBHelper.addData(
-                                        marker.getTitle(),
-                                        marker.getSnippet(),
-                                        Double.toString(marker.getPosition().latitude),
-                                        Double.toString(marker.getPosition().longitude),
-                                        "Silent"
-                                )){
-                                    DataNumber += 1;
-                                    DBHelper.parseDataNumber(DataNumber);
-                                    Toast.makeText(MapsActivity.this, getString(R.string.marker_add_success), Toast.LENGTH_LONG).show();
-                                    addDBMarkers();
-                                }
-                                else{
-                                    Toast.makeText(MapsActivity.this, getString(R.string.marker_add_failure), Toast.LENGTH_LONG).show();
-                                    //TODO: make it a toast
-                                }
+                            String title = "My Marker " + (DataNumber + 1);
+                            if (DBHelper.addData(
+                                    title,
+                                    marker.getSnippet(),
+                                    Double.toString(marker.getPosition().latitude),
+                                    Double.toString(marker.getPosition().longitude),
+                                    "Silent"
+                            )) {
+                                DataNumber += 1;
+                                DBHelper.parseDataNumber(DataNumber);
+                                Toast.makeText(MapsActivity.this, getString(R.string.marker_add_success), Toast.LENGTH_LONG).show();
+                                map.addMarker(new MarkerOptions()
+                                .title(title)
+                                .snippet(marker.getSnippet())
+                                .position(marker.getPosition()));
+                            } else {
+                                Toast.makeText(MapsActivity.this, getString(R.string.marker_add_failure), Toast.LENGTH_LONG).show();
+                            }
                         }
                     });
-                }
-                else{
+                } else {
                     addMarker.setText("");
                 }
 
                 return infoWindow;
             }
         });
-
 
 
         // [END map_current_place_set_info_window_adapter]
@@ -349,6 +351,22 @@ public class MapsActivity extends AppCompatActivity
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
+    }
+
+    //https://github.com/adrcotfas/Goodtime/commit/9fae5701b6e851d6fa5386bcbc71d63fe6e1d87d
+    private void requestNotificationPolicyAccess() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !isNotificationPolicyAccessGranted()) {
+            Intent intent = new Intent(android.provider.Settings.
+                    ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+            startActivity(intent);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private boolean isNotificationPolicyAccessGranted() {
+        NotificationManager notificationManager = (NotificationManager)
+                MapsActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);
+        return notificationManager.isNotificationPolicyAccessGranted();
     }
     // [END maps_current_place_on_map_ready]
 
@@ -388,7 +406,7 @@ public class MapsActivity extends AppCompatActivity
                     }
                 });
             }
-        } catch (SecurityException e)  {
+        } catch (SecurityException e) {
             Log.e("Exception: %s", e.getMessage(), e);
         }
     }
@@ -460,10 +478,9 @@ public class MapsActivity extends AppCompatActivity
 
             // Get the likely places - that is, the businesses and other points of interest that
             // are the best match for the device's current location.
-            @SuppressWarnings("MissingPermission") final
-            Task<FindCurrentPlaceResponse> placeResult =
+            @SuppressWarnings("MissingPermission") final Task<FindCurrentPlaceResponse> placeResult =
                     placesClient.findCurrentPlace(request);
-            placeResult.addOnCompleteListener (new OnCompleteListener<FindCurrentPlaceResponse>() {
+            placeResult.addOnCompleteListener(new OnCompleteListener<FindCurrentPlaceResponse>() {
                 @Override
                 public void onComplete(@NonNull Task<FindCurrentPlaceResponse> task) {
                     if (task.isSuccessful() && task.getResult() != null) {
@@ -500,8 +517,7 @@ public class MapsActivity extends AppCompatActivity
                         // Show a dialog offering the user the list of likely places, and add a
                         // marker at the selected place.
                         MapsActivity.this.openPlacesDialog();
-                    }
-                    else {
+                    } else {
                         Log.e(TAG, "Exception: %s", task.getException());
                     }
                 }
@@ -577,15 +593,16 @@ public class MapsActivity extends AppCompatActivity
                 lastKnownLocation = null;
                 getLocationPermission();
             }
-        } catch (SecurityException e)  {
+        } catch (SecurityException e) {
             Log.e("Exception: %s", e.getMessage());
         }
     }
     // [END maps_current_place_update_location_ui]
 
-    private void SilencePhone() { //TODO: fix bug
+    private void SilencePhone() {
         int DNumber = DBHelper.getDataNumber();
-        for (int i = 0; i <= DNumber; i++){
+        boolean ToSilence = false;
+        for (int i = 1; i <= DNumber; i++){
             if (!DBHelper.checkID(i)){
                 i ++;
                 DNumber ++;
@@ -600,12 +617,24 @@ public class MapsActivity extends AppCompatActivity
                         || ((diffLat > -0.0006) && (diffLat < 0))
                         || ((diffLong < 0.0006)  && (diffLong > 0))
                         || ((diffLong > -0.0006) && (diffLong < 0))){
-                    intent = new Intent(silencerFilter);
+                    ToSilence = true;
                 }
-                else{
-                    intent = new Intent(unsilencerFilter);
-                }
-                sendBroadcast(intent);
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
+            if (ToSilence){
+                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+            else {
+                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        }
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+            if (ToSilence){
+                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+            else {
+                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
             }
         }
     }

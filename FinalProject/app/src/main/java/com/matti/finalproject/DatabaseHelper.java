@@ -34,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = " CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+        String createTable = " CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " TITLE TEXT, SNIPPET TEXT, LATITUDE TEXT , LONGITUDE TEXT, MODE TEXT)";
         db.execSQL(createTable);
     }
@@ -77,14 +77,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getData (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         return data;
     }
 
     public boolean checkID (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         try {
-            Cursor data = db.rawQuery("SELECT ID FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
+            Cursor data = db.rawQuery("SELECT ID FROM " + TABLE_NAME + " WHERE ID=" + id + "", null);
         }
         catch (Exception e){ //Is this even the right exception?
             return false;
@@ -95,46 +95,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String getTitle (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT TITLE FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
-        String returning = data.getString(data.getColumnIndex(COL1));
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        String returning = data.getString(1);
         return returning;
     }
 
     public String getSnippet (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT SNIPPET FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
-        String returning = data.getString(data.getColumnIndex(COL2));
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        String returning = data.getString(2);
         return returning;
     }
 
     public String getLat (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT LATITUDE FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
-        String returning = data.getString(data.getColumnIndex(COL3));
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        String returning = data.getString(3);
         return returning;
     }
 
     public String getLongi (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT LONGITUDE FROM " + TABLE_NAME + "WHERE ID=" + id+"", null);
-        String returning = data.getString(data.getColumnIndex(COL4));
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        String returning = data.getString(4);
         return returning;
     }
 
-    public ArrayList<String> getAllMarkers() {
-        ArrayList<String> array_list = new ArrayList<String>();
-
-        //hp = new HashMap();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "SELECT * FROM " + TABLE_NAME, null );
-        res.moveToFirst();
-
-        while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex(COL1)));
-            res.moveToNext();
-        }
-        return array_list;
-    }
+//    public ArrayList<String> getAllMarkers() {
+//        ArrayList<String> array_list = new ArrayList<String>();
+//
+//        //hp = new HashMap();
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor res =  db.rawQuery( "SELECT * FROM " + TABLE_NAME, null );
+//        res.moveToFirst();
+//
+//        while(res.isAfterLast() == false){
+//            array_list.add(res.getString(res.getColumnIndex(COL1)));
+//            res.moveToNext();
+//        }
+//        return array_list;
+//    }
 
     public boolean updateData(String id, String title, String snippet, String latitude, String longitude, String mode){
         SQLiteDatabase db = this.getWritableDatabase();
