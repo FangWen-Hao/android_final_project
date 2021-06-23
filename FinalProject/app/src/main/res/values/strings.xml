@@ -19,4 +19,21 @@
     <string name="add_marker">Click the description box to add the following marker</string>
     <string name="marker_add_success">Marker added succesfully.</string>
     <string name="marker_add_failure">Couldn\'t add marker, please try again.</string>
+    <string name="edit_marker">Click the description box to edit this marker.</string>
+    <string name="editView_marker_title">Marker Title</string>
+    <string name="editView_marker_title_hint">Insert the marker\'s title</string>
+    <string name="editView_marker_snippet">Snippet</string>
+    <string name="editView_marker_snippet_hint">Insert the marker\'s description.</string>
+    <string name="editView_marker_save">Save</string>
+    <string name="editView_marker_delete">Delete</string>
+    <string name="editView_marker_reset">Reset</string>
+    <string name="edit_markers_save_error">No changes were made, please try again!</string>
+    <string name="marker_update_failure">Couldn\'t update marker, please try again.</string>
+    <string name="marker_rm_failure">Couldn\'t delete marker, please try again</string>
+    <string name="editView_marker_cancel">Cancel</string>
+    <string name="title_markers_edit">Edit Markers</string>
+    <string name="editView_marker_mode">Marker mode</string>
+    <string name="editView_marker_radio_vibrate">Vibrate</string>
+    <string name="editView_marker_radio_silence">Silent</string>
+    <string name="editView_marker_radio_normal">Unmute</string>
 </resources>
