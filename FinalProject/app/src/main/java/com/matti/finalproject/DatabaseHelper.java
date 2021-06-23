@@ -9,13 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-/**
- * DATABASE_NAME is basically a "document name".
- * TABLE_NAME is the name of the tables we are referring to.
- * COl# is for storing all the data.
- * refer:  https://github.com/mitchtabian/SQLiteSaveUserData
- * https://www.youtube.com/watch?v=sK15YvRIdqY
- */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
