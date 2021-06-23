@@ -31,7 +31,6 @@ import android.util.Log;
 import android.view.View;
 
 import android.view.Menu;
-import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -55,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
     private int DataNumber = 0;
     private final String DATA_KEY = "Data Number";
+
+    private int HighestID = 0;
+    private final String HighestID_KEY = "Highest ID";
 
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "com.matti.finalproject";
@@ -94,59 +96,53 @@ public class MainActivity extends AppCompatActivity {
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
+        HighestID = mPreferences.getInt(HighestID_KEY, 0);
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMarkersData = new ArrayList<>();
-        mAdapter = new MarkersAdapter(this, mMarkersData);
+        mAdapter = new MarkersAdapter(this, mMarkersData, DataNumber);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         initializeData();
         audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
         requestNotificationPolicyAccess();
-
-
     }
 
     private void initializeData() {
-            int DNumber = DataNumber;
             if (DataNumber == 0) {
-                mMarkersData.add(new Marker("No marker has been added!", "Press the button below to go to the map and add markers", "", ""));
+                mMarkersData.add(new Marker("No marker has been added!", "Press the button below to go to the map and add markers", "", "", ""));
             }
             else {
-                for (int i = 1; i <= DNumber; i++) {
-                    if (!DBHelper.checkID(i)) {
-                        i++;
-                        DNumber++;
-                    } else {
+                for (int i = 1; i <= HighestID; i++) {
+                    if (DBHelper.checkID(i)) {
                         String title = DBHelper.getTitle(i);
                         String snippet = DBHelper.getSnippet(i);
-                        String markerLat = "Latitude : " + Double.longBitsToDouble(Long.parseLong(DBHelper.getLat(i)));
-                        String markerLong = "Longitude : " + Double.longBitsToDouble(Long.parseLong(DBHelper.getLong(i)));
-                        mMarkersData.add(new Marker(title, snippet, markerLat, markerLong));
+                        String markerLat = "Latitude : " + DBHelper.getLat(i);
+                        String markerLong = "Longitude : " + DBHelper.getLong(i);
+                        String markerMode = DBHelper.getMode(i);
+                        mMarkersData.add(new Marker(title, snippet, markerLat, markerLong, markerMode));
                     }
                 }
             }
         mAdapter.notifyDataSetChanged();
         mMarkersData = new ArrayList<>();
-
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        preferencesEditor.putInt(DATA_KEY, DataNumber);
-        preferencesEditor.apply();
+    public void launchMap(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
+        HighestID = mPreferences.getInt(HighestID_KEY, 0);
         getLocationPermission();
-        getDeviceLocation();
-        mAdapter = new MarkersAdapter(this, mMarkersData);
+        silenceMyPhone();
+        mMarkersData = new ArrayList<>();
+        mAdapter = new MarkersAdapter(this, mMarkersData, DataNumber);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         initializeData();
@@ -155,22 +151,32 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         unregisterReceiver(Silencer);
         unregisterReceiver(Unmute);
+        super.onDestroy();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    private void resetUpdate(){
+        initializeData();
+        onResume();
     }
 
     private void SilencePhone() {
-        int DNumber = DataNumber;
         boolean ToSilence = false;
-        if (DNumber != 0) {
-            for (int i = 1; i <= DNumber; i++) {
-                if (!DBHelper.checkID(i)) {
-                    i++;
-                    DNumber++;
-                } else {
-                    Double markerLat = Double.longBitsToDouble(Long.parseLong(DBHelper.getLat(i)));
-                    Double markerLong = Double.longBitsToDouble(Long.parseLong(DBHelper.getLong(i)));
+        Double closestPlace = 1.0;
+        String mode="a";
+        if (DataNumber != 0) {
+            for (int i = 1; i <= HighestID; i++) {
+                if (DBHelper.checkID(i)) {
+                    Double markerLat = DBHelper.getLat(i);
+                    Double markerLong = DBHelper.getLong(i);
                     Double diffLatSqr = currentLatitude - markerLat;
                     diffLatSqr *= diffLatSqr;
                     Double diffLongSqr = currentLongitude - markerLong;
@@ -178,21 +184,43 @@ public class MainActivity extends AppCompatActivity {
                     if ((diffLatSqr < 0.00000036)
                             || (diffLongSqr < 0.00000036)) {
                         ToSilence = true;
+                        if (closestPlace > (diffLatSqr+diffLongSqr)){
+                            mode = DBHelper.getMode(i);
+                        }
+
                     }
                 }
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
             if (ToSilence){
-                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                if(!mode.equals(null)) {
+                    if (mode.equals("Silent")) {
+                        audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                    } else if (mode.equals("Vibrate")) {
+                        audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                    } else if (mode.equals("Normal")) {
+                        audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                    }
+                }
+
             }
             else {
                 audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
             }
         }
-        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             if (ToSilence){
-                audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                if(!mode.equals(null)) {
+                    if (mode.equals("Silent")) {
+                        audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                    } else if (mode.equals("Vibrate")) {
+                        audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                    } else if (mode.equals("Normal")) {
+                        audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                    }
+                }
+
             }
             else {
                 audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
@@ -215,36 +243,24 @@ public class MainActivity extends AppCompatActivity {
         return notificationManager.isNotificationPolicyAccessGranted();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void launchMap(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
-    private void getDeviceLocation() {
+    private void silenceMyPhone() {
         /*
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
@@ -267,8 +283,6 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());
-                            currentLatitude = -33.8523341;
-                            currentLongitude = 151.2106085;
                         }
                     }
                 });
@@ -322,12 +336,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     // [END maps_current_place_on_request_permissions_result]
-
-    private void resetUpdate(){
-        onPause();
-        initializeData();
-        onResume();
-    }
 
 
 }

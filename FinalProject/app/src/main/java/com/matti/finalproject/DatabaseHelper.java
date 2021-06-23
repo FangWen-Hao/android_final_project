@@ -46,13 +46,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean addData(String title, String snippet, String latitude, String longitude, String mode){
+    public boolean addData(String title, String snippet, Double latitude, Double longitude, String mode){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1,title);
         contentValues.put(COL2,snippet);
-        contentValues.put(COL3, latitude);
-        contentValues.put(COL4,longitude);
+        String string1 = String.valueOf(Double.doubleToRawLongBits(latitude));
+        contentValues.put(COL3, string1);
+        String string2 = String.valueOf(Double.doubleToRawLongBits(longitude));
+        contentValues.put(COL4,string2);
         contentValues.put(COL5,mode);
 
         long result  = db.insert(TABLE_NAME, null, contentValues);
@@ -64,9 +66,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor showAllData(){
+    public int getIDbyTitle(String title){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE TITLE LIKE '%" + title +"%'", null);
+        data.moveToFirst();
+        int returning = data.getInt(0);
+        return returning;
     }
 
     public int getData (int id){
@@ -79,13 +84,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean checkID (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        try {
-            Cursor data = db.rawQuery("SELECT ID FROM " + TABLE_NAME + " WHERE ID=" + id + "", null);
-        }
-        catch (Exception e){ //Is this even the right exception?
-            return false;
-        }
-        return true;
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id + "", null);
+        if (data.moveToFirst()) {return true;}
+        else{return false;}
     }
 
 
@@ -105,37 +106,59 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return returning;
     }
 
-    public String getLat (int id){
+    public Double getLat (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
-        String returning = data.getString(3);
+        String string = data.getString(3);
+        Double returning = Double.longBitsToDouble(Long.parseLong(string));
         return returning;
     }
 
-    public String getLong(int id){
+    public Double getLong(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
-        String returning = data.getString(4);
+        String string = data.getString(4);
+        Double returning = Double.longBitsToDouble(Long.parseLong(string));
         return returning;
     }
 
-    public boolean updateData(String id, String title, String snippet, String latitude, String longitude, String mode){
+    public String getMode (int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
+        data.moveToFirst();
+        String returning = data.getString(5);
+        return returning;
+    }
+
+    public boolean updateData(int id, String title, String snippet, Double latitude, Double longitude, String mode){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1,title);
         contentValues.put(COL2,snippet);
-        contentValues.put(COL3, latitude);
-        contentValues.put(COL4,longitude);
+        String string1 = String.valueOf(Double.doubleToRawLongBits(latitude));
+        contentValues.put(COL3, string1);
+        String string2 = String.valueOf(Double.doubleToRawLongBits(longitude));
+        contentValues.put(COL4,string2);
         contentValues.put(COL5,mode);
-        db.update(TABLE_NAME, contentValues, "ID = ?", new String[] {id});
-        return true;
+        long result  = db.update(TABLE_NAME, contentValues, "ID = ?", new String[] {String.valueOf(id)});
+        if(result == -1){
+            return false;
+        }else{
+            return true;
+        }
     }
 
-    public Integer deleteData(String id){
+    public Boolean deleteData(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
+        long result  = db.delete(TABLE_NAME, "ID = ?", new String[] {String.valueOf(id)});
+
+        if(result == -1){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 }
