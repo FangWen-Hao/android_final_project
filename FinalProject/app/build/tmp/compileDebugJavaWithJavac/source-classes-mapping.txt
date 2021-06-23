@@ -1,5 +1,5 @@
-com/matti/finalproject/GeofenceBroadcastReceiver.java
- com.matti.finalproject.GeofenceBroadcastReceiver
+com/matti/finalproject/MovableFab.java
+ com.matti.finalproject.MovableFab
 com/matti/finalproject/SilenceBroadcastReceiver.java
  com.matti.finalproject.SilenceBroadcastReceiver
 com/matti/finalproject/BuildConfig.java
@@ -13,11 +13,9 @@ com/matti/finalproject/DatabaseHelper.java
  com.matti.finalproject.DatabaseHelper
 com/matti/finalproject/Marker.java
  com.matti.finalproject.Marker
-com/matti/finalproject/MovableFab.java
- com.matti.finalproject.MovableFab
-com/matti/finalproject/MarkersAdapter.java
- com.matti.finalproject.MarkersAdapter
- com.matti.finalproject.MarkersAdapter$ViewHolder
+com/matti/finalproject/EditMarkers.java
+ com.matti.finalproject.EditMarkers
+ com.matti.finalproject.EditMarkers$1
 com/matti/finalproject/MapsActivity.java
  com.matti.finalproject.MapsActivity
  com.matti.finalproject.MapsActivity$1
@@ -27,6 +25,12 @@ com/matti/finalproject/MapsActivity.java
  com.matti.finalproject.MapsActivity$4
  com.matti.finalproject.MapsActivity$5
  com.matti.finalproject.MapsActivity$6
+ com.matti.finalproject.MapsActivity$7
+com/matti/finalproject/GeofenceBroadcastReceiver.java
+ com.matti.finalproject.GeofenceBroadcastReceiver
+com/matti/finalproject/MarkersAdapter.java
+ com.matti.finalproject.MarkersAdapter
+ com.matti.finalproject.MarkersAdapter$ViewHolder
 com/matti/finalproject/MainActivity.java
  com.matti.finalproject.MainActivity
  com.matti.finalproject.MainActivity$1
