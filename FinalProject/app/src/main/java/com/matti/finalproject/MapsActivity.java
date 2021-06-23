@@ -51,6 +51,9 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
+import org.decimal4j.util.DoubleRounder;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +66,6 @@ public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
     private Map<Marker, Map<String, Object>> markers = new HashMap<>();
-    private Map<String, Object> dataModel = new HashMap<>();
 
 
     private static final String TAG = MapsActivity.class.getSimpleName();
@@ -157,10 +159,6 @@ public class MapsActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
         // [END maps_current_place_map_fragment]
         // [END_EXCLUDE]
-        dataModel.put("title", "Selected place");
-        dataModel.put("snipet", "You have selected this place");
-        dataModel.put("latitude", 20.0f);
-        dataModel.put("longitude", 100.0f);
 
         DBHelper = new DatabaseHelper(this);
         Silencer = new SilenceBroadcastReceiver();
@@ -220,8 +218,8 @@ public class MapsActivity extends AppCompatActivity
                     } else {
                         String title = DBHelper.getTitle(i);
                         String snippet = DBHelper.getSnippet(i);
-                        Double markerLat = DBHelper.getLat(i);
-                        Double markerLong = DBHelper.getLong(i);
+                        Double markerLat = Double.longBitsToDouble(Long.parseLong(DBHelper.getLat(i)));
+                        Double markerLong = Double.longBitsToDouble(Long.parseLong(DBHelper.getLong(i)));
                         map.addMarker(new MarkerOptions()
                             .position(new LatLng(markerLat, markerLong))
                             .title(title)
@@ -281,7 +279,6 @@ public class MapsActivity extends AppCompatActivity
                 SelectedPlaceMarker = map.addMarker(new MarkerOptions()
                         .position(point)
                         .title("Selected place"));
-                markers.put(SelectedPlaceMarker, dataModel);
             }
         });
 
@@ -312,8 +309,8 @@ public class MapsActivity extends AppCompatActivity
                 snippet.setText(marker.getSnippet());
 
                 TextView coordinates = infoWindow.findViewById(R.id.coordinates);
-                Double MyLat = marker.getPosition().latitude;
-                Double MyLong = marker.getPosition().longitude;
+                Double TLat = marker.getPosition().latitude;
+                Double TLong = marker.getPosition().longitude;
                 coordinates.setText("Latitude: " + marker.getPosition().latitude + "\n Longitude: " + marker.getPosition().longitude);
 
                 TextView addMarker = infoWindow.findViewById(R.id.addMsg);
@@ -327,7 +324,10 @@ public class MapsActivity extends AppCompatActivity
                         @Override
                         public void onInfoWindowClick(@NonNull Marker marker) {
                             if (marker.getTitle().equals("Selected place")) {
-                                String MyTitle = "My Marker (" + (DataNumber + 1) + ")"; //TODO: fix "My Marker 1" repeating twice
+                                String MyTitle = "My Marker (" + (DataNumber + 1) + ")";
+                                String MyLat = String.valueOf(Double.doubleToRawLongBits(TLat));
+                                String MyLong = String.valueOf(Double.doubleToRawLongBits(TLong));
+                                Log.d(TAG, "MyLat : " + MyLat);
                                 if (DBHelper.addData(
                                         MyTitle,
                                         MySnippet,
@@ -339,7 +339,7 @@ public class MapsActivity extends AppCompatActivity
                                     map.addMarker(new MarkerOptions()
                                             .title(MyTitle)
                                             .snippet(MySnippet)
-                                            .position(new LatLng(MyLat, MyLong)));
+                                            .position(new LatLng(TLat, TLong)));
                                     if (SelectedPlaceMarker != null) {
                                         SelectedPlaceMarker.remove();
                                     }
@@ -358,7 +358,7 @@ public class MapsActivity extends AppCompatActivity
         });
 
         onPause();
-        onResume();
+        addDBMarkers();
         // [END map_current_place_set_info_window_adapter]
     }
 
@@ -619,8 +619,8 @@ public class MapsActivity extends AppCompatActivity
                     i++;
                     DNumber++;
                 } else {
-                    Double markerLat = DBHelper.getLat(i);
-                    Double markerLong = DBHelper.getLong(i);
+                    Double markerLat = Double.longBitsToDouble(Long.parseLong(DBHelper.getLat(i)));
+                    Double markerLong = Double.longBitsToDouble(Long.parseLong(DBHelper.getLong(i)));
                     Double diffLatSqr = currentLatitude - markerLat;
                     diffLatSqr *= diffLatSqr;
                     Double diffLongSqr = currentLongitude - markerLong;
@@ -654,5 +654,6 @@ public class MapsActivity extends AppCompatActivity
         onPause();
         onResume();
     }
+
 }
 

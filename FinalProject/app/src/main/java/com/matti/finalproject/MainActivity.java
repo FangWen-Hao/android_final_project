@@ -121,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         String title = DBHelper.getTitle(i);
                         String snippet = DBHelper.getSnippet(i);
-                        String markerLat = "Latitude : " + DBHelper.getLat(i);
-                        String markerLong = "Longitude : " + DBHelper.getLong(i);
+                        String markerLat = "Latitude : " + Double.longBitsToDouble(Long.parseLong(DBHelper.getLat(i)));
+                        String markerLong = "Longitude : " + Double.longBitsToDouble(Long.parseLong(DBHelper.getLong(i)));
                         mMarkersData.add(new Marker(title, snippet, markerLat, markerLong));
                     }
                 }
@@ -169,8 +169,8 @@ public class MainActivity extends AppCompatActivity {
                     i++;
                     DNumber++;
                 } else {
-                    Double markerLat = DBHelper.getLat(i);
-                    Double markerLong = DBHelper.getLong(i);
+                    Double markerLat = Double.longBitsToDouble(Long.parseLong(DBHelper.getLat(i)));
+                    Double markerLong = Double.longBitsToDouble(Long.parseLong(DBHelper.getLong(i)));
                     Double diffLatSqr = currentLatitude - markerLat;
                     diffLatSqr *= diffLatSqr;
                     Double diffLongSqr = currentLongitude - markerLong;

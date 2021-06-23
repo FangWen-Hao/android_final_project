@@ -27,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL4 = "LONGITUDE";
     public static final String COL5 = "MODE";
 
+
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, 1);
     }
@@ -34,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = " CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " TITLE TEXT, SNIPPET TEXT, LATITUDE BLOB , LONGITUDE BLOB, MODE TEXT)";
+                " TITLE TEXT, SNIPPET TEXT, LATITUDE TEXT , LONGITUDE TEXT, MODE TEXT)";
         db.execSQL(createTable);
     }
 
@@ -45,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean addData(String title, String snippet, Double latitude, Double longitude, String mode){
+    public boolean addData(String title, String snippet, String latitude, String longitude, String mode){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1,title);
@@ -104,36 +105,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return returning;
     }
 
-    public double getLat (int id){
+    public String getLat (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
-        double returning = data.getDouble(3);
+        String returning = data.getString(3);
         return returning;
     }
 
-    public double getLong(int id){
+    public String getLong(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
-        double returning = data.getDouble(4);
+        String returning = data.getString(4);
         return returning;
     }
-
-//    public ArrayList<String> getAllMarkers() {
-//        ArrayList<String> array_list = new ArrayList<String>();
-//
-//        //hp = new HashMap();
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor res =  db.rawQuery( "SELECT * FROM " + TABLE_NAME, null );
-//        res.moveToFirst();
-//
-//        while(res.isAfterLast() == false){
-//            array_list.add(res.getString(res.getColumnIndex(COL1)));
-//            res.moveToNext();
-//        }
-//        return array_list;
-//    }
 
     public boolean updateData(String id, String title, String snippet, String latitude, String longitude, String mode){
         SQLiteDatabase db = this.getWritableDatabase();
