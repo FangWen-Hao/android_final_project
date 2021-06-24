@@ -699,13 +699,17 @@ public class MapsActivity extends AppCompatActivity
         }
         else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             if (ToSilence){
-                if(!mode.equals(null)) {
-                    if (mode.equals("Silent")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-                    } else if (mode.equals("Vibrate")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                    } else if (mode.equals("Normal")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                if(mode != null) {
+                    switch (mode) {
+                        case "Silent":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                            break;
+                        case "Vibrate":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                            break;
+                        case "Normal":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                            break;
                     }
                 }
 
