@@ -101,8 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         String string = data.getString(3);
-        Double returning = Double.longBitsToDouble(Long.parseLong(string));
-        return returning;
+        return Double.longBitsToDouble(Long.parseLong(string));
     }
 
     public Double getLong(int id){
