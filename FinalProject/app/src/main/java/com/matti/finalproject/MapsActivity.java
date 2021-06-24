@@ -15,7 +15,6 @@ import android.location.Location;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -41,7 +40,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.PlaceLikelihood;
@@ -50,10 +48,6 @@ import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-
-import org.decimal4j.util.DoubleRounder;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -65,12 +59,11 @@ import java.util.Map;
 public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
-    private Map<Marker, Map<String, Object>> markers = new HashMap<>();
+    private final Map<Marker, Map<String, Object>> markers = new HashMap<>();
 
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap map;
-    private CameraPosition cameraPosition;
 
     // The entry point to the Places API.
     private PlacesClient placesClient;
@@ -120,7 +113,6 @@ public class MapsActivity extends AppCompatActivity
     private final String DATA_KEY = "Data Number";
 
     private SharedPreferences mPreferences;
-    private String sharedPrefFile = "com.matti.finalproject";
 
     private Marker SelectedPlaceMarker;
     private AudioManager audio;
@@ -139,7 +131,7 @@ public class MapsActivity extends AppCompatActivity
 
         if (savedInstanceState != null) {
             lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-            cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
+            CameraPosition cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
         }
         // [END maps_current_place_on_create_save_instance_state]
         // [END_EXCLUDE]
@@ -169,6 +161,7 @@ public class MapsActivity extends AppCompatActivity
         registerReceiver(Silencer, new IntentFilter(silencerFilter));
         registerReceiver(Unmute, new IntentFilter(unsilencerFilter));
 
+        String sharedPrefFile = "com.matti.finalproject";
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
         HighestID = mPreferences.getInt(HighestID_KEY, 0);
@@ -184,7 +177,7 @@ public class MapsActivity extends AppCompatActivity
      */
     // [START maps_current_place_on_save_instance_state]
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         if (map != null) {
             outState.putParcelable(KEY_CAMERA_POSITION, map.getCameraPosition());
             outState.putParcelable(KEY_LOCATION, lastKnownLocation);

@@ -2,11 +2,11 @@ package com.matti.finalproject;
 
 public class Marker {
     // Member variables representing the title and information about the sport.
-    private String title;
-    private String snippet;
-    private String latitude;
-    private String longitude;
-    private String mode;
+    private final String title;
+    private final String snippet;
+    private final String latitude;
+    private final String longitude;
+    private final String mode;
 
     public Marker(String title, String snippet, String latitude, String longitude, String mode) {
         this.title = title;

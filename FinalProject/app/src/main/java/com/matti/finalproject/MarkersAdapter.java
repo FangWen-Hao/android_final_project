@@ -26,9 +26,9 @@ import java.util.ArrayList;
 public class MarkersAdapter extends RecyclerView.Adapter<MarkersAdapter.ViewHolder> {
 
     // Member variables.
-    private ArrayList<Marker> mMarkersData;
-    private Context mContext;
-    private int mDataNumber;
+    private final ArrayList<Marker> mMarkersData;
+    private final Context mContext;
+    private final int mDataNumber;
 
     MarkersAdapter(Context context, ArrayList<Marker> markersData, int DataNumber) {
         this.mMarkersData = markersData;
@@ -71,6 +71,7 @@ public class MarkersAdapter extends RecyclerView.Adapter<MarkersAdapter.ViewHold
          *
          * @param itemView The rootview of the list_item.xml layout file.
          */
+
         ViewHolder(View itemView) {
             super(itemView);
             // Initialize the views.

@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     private final String HighestID_KEY = "Highest ID";
 
     private SharedPreferences mPreferences;
-    private String sharedPrefFile = "com.matti.finalproject";
 
     private RecyclerView mRecyclerView;
     private ArrayList<Marker> mMarkersData;
@@ -94,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(Silencer, new IntentFilter(silencerFilter));
         registerReceiver(Unmute, new IntentFilter(unsilencerFilter));
 
+        String sharedPrefFile = "com.matti.finalproject";
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
         HighestID = mPreferences.getInt(HighestID_KEY, 0);
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         initializeData();
-        audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
+        audio = (AudioManager) this.getSystemService(AUDIO_SERVICE);
         requestNotificationPolicyAccess();
     }
 

@@ -53,13 +53,10 @@ public class EditMarkers extends AppCompatActivity {
     private final String DATA_KEY = "Data Number";
 
     private SharedPreferences mPreferences;
-    private String sharedPrefFile = "com.matti.finalproject";
     private AudioManager audio;
 
     private String defaultTitle;
     private String defaultSnippet;
-    private String newTitle;
-    private String newSnippet;
     private Integer id;
     private Double Latitude;
     private Double Longitude;
@@ -68,11 +65,6 @@ public class EditMarkers extends AppCompatActivity {
 
     private EditText mTitleInput;
     private EditText mSnippetInput;
-    private TextView mLatitudeView;
-    private TextView mLongitudeView;
-    private RadioButton SilentButton;
-    private RadioButton VibrateButton;
-    private RadioButton NormalButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,19 +76,20 @@ public class EditMarkers extends AppCompatActivity {
         registerReceiver(Silencer, new IntentFilter(silencerFilter));
         registerReceiver(Unmute, new IntentFilter(unsilencerFilter));
 
+        String sharedPrefFile = "com.matti.finalproject";
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         DataNumber = mPreferences.getInt(DATA_KEY, 0);
         HighestID = mPreferences.getInt(HighestID_KEY, 0);
-        audio = (AudioManager) this.getSystemService(this.AUDIO_SERVICE);
+        audio = (AudioManager) this.getSystemService(AUDIO_SERVICE);
         requestNotificationPolicyAccess();
 
         mTitleInput = findViewById(R.id.editTextTitle);
         mSnippetInput = findViewById(R.id.editTextSnippet);
-        mLatitudeView = findViewById(R.id.textViewLatitude);
-        mLongitudeView = findViewById(R.id.textViewLongitude);
-        SilentButton = findViewById(R.id.radioButtonSilent);
-        VibrateButton = findViewById(R.id.radioButtonVibrate);
-        NormalButton = findViewById(R.id.radioButtonNormal);
+        TextView mLatitudeView = findViewById(R.id.textViewLatitude);
+        TextView mLongitudeView = findViewById(R.id.textViewLongitude);
+        RadioButton silentButton = findViewById(R.id.radioButtonSilent);
+        RadioButton vibrateButton = findViewById(R.id.radioButtonVibrate);
+        RadioButton normalButton = findViewById(R.id.radioButtonNormal);
 
         defaultTitle = getIntent().getStringExtra("title");
         id = DBHelper.getIDbyTitle(defaultTitle);
@@ -109,14 +102,16 @@ public class EditMarkers extends AppCompatActivity {
         mLongitudeView.setText("Latitude : " + Longitude);
         defaultMode = DBHelper.getMode(id);
 
-        if(defaultMode.equals("Silent")){
-            SilentButton.toggle();
-        }
-        else if (defaultMode.equals("Vibrate")){
-            VibrateButton.toggle();
-        }
-        else if (defaultMode.equals("Normal")){
-            NormalButton.toggle();
+        switch (defaultMode) {
+            case "Silent":
+                silentButton.toggle();
+                break;
+            case "Vibrate":
+                vibrateButton.toggle();
+                break;
+            case "Normal":
+                normalButton.toggle();
+                break;
         }
     }
 
@@ -141,8 +136,8 @@ public class EditMarkers extends AppCompatActivity {
     }
 
     public void Save(View view) {
-        newTitle = mTitleInput.getText().toString();
-        newSnippet = mSnippetInput.getText().toString();
+        String newTitle = mTitleInput.getText().toString();
+        String newSnippet = mSnippetInput.getText().toString();
         Log.d(TAG, "newSnippet = " + newSnippet);
         Log.d(TAG, "defaultSnippet = " + defaultSnippet);
         if (newSnippet.equals(null)){
@@ -352,13 +347,10 @@ public class EditMarkers extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         locationPermissionGranted = false;
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    locationPermissionGranted = true;
-                }
+        if (requestCode == PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION) {// If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                locationPermissionGranted = true;
             }
         }
     }
