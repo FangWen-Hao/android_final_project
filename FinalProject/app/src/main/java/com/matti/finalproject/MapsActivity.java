@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -52,6 +53,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * An activity that displays a map showing the place at the device's current location.
@@ -60,7 +62,6 @@ public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
     private final Map<Marker, Map<String, Object>> markers = new HashMap<>();
-
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap map;
@@ -293,6 +294,7 @@ public class MapsActivity extends AppCompatActivity
                 return null;
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public View getInfoContents(Marker marker) {
                 silenceMyPhone();
@@ -318,7 +320,7 @@ public class MapsActivity extends AppCompatActivity
                 TextView mode = infoWindow.findViewById(R.id.modeListItem);
 
                 TextView addMarker = infoWindow.findViewById(R.id.addMsg);
-                if (marker.getTitle().equals("Selected place")) {
+                if (Objects.equals(marker.getTitle(), "Selected place")) {
                     mode.setText("");
                     addMarker.setText(getString(R.string.add_marker));
                 }
@@ -656,16 +658,16 @@ public class MapsActivity extends AppCompatActivity
 
     private void SilencePhone() {
         boolean ToSilence = false;
-        Double closestPlace = 1.0;
+        double closestPlace = 1.0;
         String mode="a";
         if (DataNumber != 0) {
             for (int i = 1; i <= HighestID; i++) {
                 if (DBHelper.checkID(i)) {
                     Double markerLat = DBHelper.getLat(i);
                     Double markerLong = DBHelper.getLong(i);
-                    Double diffLatSqr = currentLatitude - markerLat;
+                    double diffLatSqr = currentLatitude - markerLat;
                     diffLatSqr *= diffLatSqr;
-                    Double diffLongSqr = currentLongitude - markerLong;
+                    double diffLongSqr = currentLongitude - markerLong;
                     diffLongSqr *= diffLongSqr;
                     if ((diffLatSqr < 0.00000036)
                             || (diffLongSqr < 0.00000036)) {
