@@ -39,12 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper DBHelper;
     private boolean locationPermissionGranted;
-    private FusedLocationProviderClient fusedLocationProviderClient;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
     private Location lastKnownLocation;
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    private double currentLatitude;
-    private double currentLongitude;
 
     private static final String silencerFilter = "com.matti.finalproject.SilenceBroadcastReceiver";
     private SilenceBroadcastReceiver Silencer;
@@ -86,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 resetUpdate();
             }
         });
+
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         DBHelper = new DatabaseHelper(this);
         Silencer = new SilenceBroadcastReceiver();
@@ -168,18 +168,18 @@ public class MainActivity extends AppCompatActivity {
         onResume();
     }
 
-    private void SilencePhone() {
+    private void SilencePhone(Double currentLatitude, Double currentLongitude) {
         boolean ToSilence = false;
-        Double closestPlace = 1.0;
+        double closestPlace = 1.0;
         String mode="a";
         if (DataNumber != 0) {
             for (int i = 1; i <= HighestID; i++) {
                 if (DBHelper.checkID(i)) {
                     Double markerLat = DBHelper.getLat(i);
                     Double markerLong = DBHelper.getLong(i);
-                    Double diffLatSqr = currentLatitude - markerLat;
+                    double diffLatSqr = currentLatitude - markerLat;
                     diffLatSqr *= diffLatSqr;
-                    Double diffLongSqr = currentLongitude - markerLong;
+                    double diffLongSqr = currentLongitude - markerLong;
                     diffLongSqr *= diffLongSqr;
                     if ((diffLatSqr < 0.00000036)
                             || (diffLongSqr < 0.00000036)) {
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
             if (ToSilence){
-                if(!mode.equals(null)) {
+                if( mode != null) {
                     if (mode.equals("Silent")) {
                         audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
                     } else if (mode.equals("Vibrate")) {
@@ -211,13 +211,17 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             if (ToSilence){
-                if(!mode.equals(null)) {
-                    if (mode.equals("Silent")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-                    } else if (mode.equals("Vibrate")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                    } else if (mode.equals("Normal")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                if(mode != null) {
+                    switch (mode) {
+                        case "Silent":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                            break;
+                        case "Vibrate":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                            break;
+                        case "Normal":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                            break;
                     }
                 }
 
@@ -258,17 +262,16 @@ public class MainActivity extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 
-    private FusedLocationProviderClient mFusedLocationProviderClient;
+
 
     private void silenceMyPhone() {
         /*
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
          */
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         try {
             if (locationPermissionGranted) {
-                final Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
+                Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
                 locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
@@ -276,9 +279,7 @@ public class MainActivity extends AppCompatActivity {
                             // Set the map's camera position to the current location of the device.
                             lastKnownLocation = task.getResult();
                             if (lastKnownLocation != null) {
-                                currentLatitude = lastKnownLocation.getLatitude();
-                                currentLongitude = lastKnownLocation.getLongitude();
-                                SilencePhone();
+                                SilencePhone(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
                             }
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
@@ -287,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        } catch (SecurityException e)  {
+        } catch (SecurityException e) {
             Log.e("Exception: %s", e.getMessage(), e);
         }
     }
