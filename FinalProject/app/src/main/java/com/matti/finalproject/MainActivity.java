@@ -195,12 +195,19 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
             if (ToSilence){
                 if( mode != null) {
-                    if (mode.equals("Silent")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-                    } else if (mode.equals("Vibrate")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                    } else if (mode.equals("Normal")) {
-                        audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                    switch (mode) {
+                        case "Silent":
+                            if (audio.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE){
+                                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                            }
+                            audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                            break;
+                        case "Vibrate":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                            break;
+                        case "Normal":
+                            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                            break;
                     }
                 }
 
@@ -214,6 +221,9 @@ public class MainActivity extends AppCompatActivity {
                 if(mode != null) {
                     switch (mode) {
                         case "Silent":
+                            if (audio.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE){
+                                audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                            }
                             audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
                             break;
                         case "Vibrate":
