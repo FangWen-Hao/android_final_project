@@ -58,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE TITLE LIKE '%" + title +"%'", null);
         data.moveToFirst();
         int returning = data.getInt(0);
+        data.close();
         return returning;
     }
 
@@ -66,14 +67,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         int returning = data.getInt(0);
+        data.close();
         return returning;
     }
 
     public boolean checkID (int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id + "", null);
-        if (data.moveToFirst()) {return true;}
-        else{return false;}
+        if (data.moveToFirst()) {
+            data.close();
+            return true;
+        }
+        else{
+            data.close();
+            return false;
+        }
     }
 
 
@@ -82,6 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         String returning = data.getString(1);
+        data.close();
         return returning;
     }
 
@@ -90,6 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         String returning = data.getString(2);
+        data.close();
         return returning;
     }
 
@@ -98,6 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         String string = data.getString(3);
+        data.close();
         Double returning = Double.longBitsToDouble(Long.parseLong(string));
         return returning;
     }
@@ -107,6 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         String string = data.getString(4);
+        data.close();
         Double returning = Double.longBitsToDouble(Long.parseLong(string));
         return returning;
     }
@@ -116,6 +128,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID=" + id+"", null);
         data.moveToFirst();
         String returning = data.getString(5);
+        data.close();
         return returning;
     }
 
