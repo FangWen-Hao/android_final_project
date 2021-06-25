@@ -98,9 +98,6 @@ public class MapsActivity extends AppCompatActivity
 
     private DatabaseHelper DBHelper;
 
-    private double currentLatitude;
-    private double currentLongitude;
-
     private static final String silencerFilter = "com.matti.finalproject.SilenceBroadcastReceiver";
     private SilenceBroadcastReceiver Silencer;
 
@@ -407,9 +404,7 @@ public class MapsActivity extends AppCompatActivity
                             lastKnownLocation = task.getResult();
                             if (lastKnownLocation != null) {
                                 map.getUiSettings().setMyLocationButtonEnabled(true);
-                                currentLatitude = lastKnownLocation.getLatitude();
-                                currentLongitude = lastKnownLocation.getLongitude();
-                                SilencePhone();
+                                SilencePhone(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
                             }
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
@@ -656,7 +651,7 @@ public class MapsActivity extends AppCompatActivity
     }
     // [END maps_current_place_update_location_ui]
 
-    private void SilencePhone() {
+    private void SilencePhone(Double currentLatitude, Double currentLongitude) {
         boolean ToSilence = false;
         double closestPlace = 1.0;
         String mode="a";
@@ -682,7 +677,7 @@ public class MapsActivity extends AppCompatActivity
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isNotificationPolicyAccessGranted()){
             if (ToSilence){
-                if(!mode.equals(null)) {
+                if( mode != null) {
                     if (mode.equals("Silent")) {
                         audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
                     } else if (mode.equals("Vibrate")) {

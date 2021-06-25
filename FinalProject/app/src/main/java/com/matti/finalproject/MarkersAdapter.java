@@ -30,7 +30,7 @@ public class MarkersAdapter extends RecyclerView.Adapter<MarkersAdapter.ViewHold
     private final Context mContext;
     private final int mDataNumber;
 
-    MarkersAdapter(Context context, ArrayList<Marker> markersData, int DataNumber) {
+        MarkersAdapter(Context context, ArrayList<Marker> markersData, int DataNumber) {
         this.mMarkersData = markersData;
         this.mContext = context;
         this.mDataNumber = DataNumber;
