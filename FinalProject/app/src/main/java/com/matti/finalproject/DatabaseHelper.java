@@ -109,8 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         data.moveToFirst();
         String string = data.getString(3);
         data.close();
-        Double returning = Double.longBitsToDouble(Long.parseLong(string));
-        return returning;
+        return Double.longBitsToDouble(Long.parseLong(string));
     }
 
     public Double getLong(int id){
@@ -119,8 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         data.moveToFirst();
         String string = data.getString(4);
         data.close();
-        Double returning = Double.longBitsToDouble(Long.parseLong(string));
-        return returning;
+        return Double.longBitsToDouble(Long.parseLong(string));
     }
 
     public String getMode (int id){
@@ -143,22 +141,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL4,string2);
         contentValues.put(COL5,mode);
         long result  = db.update(TABLE_NAME, contentValues, "ID = ?", new String[] {String.valueOf(id)});
-        if(result == -1){
-            return false;
-        }else{
-            return true;
-        }
+        return result != -1;
     }
 
     public Boolean deleteData(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result  = db.delete(TABLE_NAME, "ID = ?", new String[] {String.valueOf(id)});
 
-        if(result == -1){
-            return false;
-        }else{
-            return true;
-        }
+        return result != -1;
     }
 
 }
