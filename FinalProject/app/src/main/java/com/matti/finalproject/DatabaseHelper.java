@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.DecimalFormat;
+
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -16,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL3 = "LATITUDE";
     public static final String COL4 = "LONGITUDE";
     public static final String COL5 = "MODE";
+    private static final DecimalFormat mformat = new DecimalFormat("###.########");
 
 
     public DatabaseHelper(Context context){
@@ -41,9 +44,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1,title);
         contentValues.put(COL2,snippet);
-        String string1 = String.valueOf(Double.doubleToRawLongBits(latitude));
+        //https://gis.stackexchange.com/questions/8650/measuring-accuracy-of-latitude-and-longitude
+        Double mLat = Double.parseDouble(mformat.format(latitude));
+        String string1 = String.valueOf(Double.doubleToRawLongBits(mLat));
         contentValues.put(COL3, string1);
-        String string2 = String.valueOf(Double.doubleToRawLongBits(longitude));
+        Double mLong = Double.parseDouble(mformat.format(longitude));
+        String string2 = String.valueOf(Double.doubleToRawLongBits(mLong));
         contentValues.put(COL4,string2);
         contentValues.put(COL5,mode);
 

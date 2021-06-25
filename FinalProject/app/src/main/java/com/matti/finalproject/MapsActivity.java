@@ -49,6 +49,7 @@ import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -114,6 +115,8 @@ public class MapsActivity extends AppCompatActivity
 
     private Marker SelectedPlaceMarker;
     private AudioManager audio;
+
+    private static final DecimalFormat mformat = new DecimalFormat("###.########");
 
 
     // [START maps_current_place_on_create]
@@ -308,11 +311,11 @@ public class MapsActivity extends AppCompatActivity
 
                 TextView latitude = infoWindow.findViewById(R.id.latitudeListItem);
                 Double MyLat = marker.getPosition().latitude;
-                latitude.setText("Latitude: " + marker.getPosition().latitude);
+                latitude.setText("Latitude: " + mformat.format(MyLat));
 
                 TextView longitude = infoWindow.findViewById(R.id.longitudeListItem);
                 Double MyLong = marker.getPosition().longitude;
-                longitude.setText("Longitude: " + marker.getPosition().longitude);
+                longitude.setText("Longitude: " + mformat.format(MyLong));
 
                 TextView mode = infoWindow.findViewById(R.id.modeListItem);
 
