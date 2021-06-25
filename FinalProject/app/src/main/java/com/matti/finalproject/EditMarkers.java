@@ -138,11 +138,13 @@ public class EditMarkers extends AppCompatActivity {
     public void Save(View view) {
         String newTitle = mTitleInput.getText().toString();
         String newSnippet = mSnippetInput.getText().toString();
-        if (newSnippet.equals(null)){
-            newSnippet = "";
-        }
-        if (defaultSnippet.equals(null)){
+
+        if (defaultSnippet == null){
             defaultSnippet = "";
+        }
+
+        if (newMode == null){
+            newMode = defaultMode;
         }
 
         if ((defaultTitle.equals(newTitle))
@@ -151,6 +153,11 @@ public class EditMarkers extends AppCompatActivity {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
             Toast.makeText(this, getString(R.string.edit_markers_save_error), Toast.LENGTH_LONG).show();
+        }
+        else if (newTitle.equals("")){
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
+            Toast.makeText(this, getString(R.string.invalid_title_input), Toast.LENGTH_LONG).show();
         }
         else {
             if(DBHelper.updateData(id, newTitle, newSnippet, Latitude, Longitude, newMode)){

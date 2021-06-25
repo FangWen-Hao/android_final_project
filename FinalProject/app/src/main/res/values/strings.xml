@@ -36,4 +36,5 @@
     <string name="editView_marker_radio_vibrate">Vibrate</string>
     <string name="editView_marker_radio_silence">Silent</string>
     <string name="editView_marker_radio_normal">Unmute</string>
+    <string name="invalid_title_input">Invalid name for the marker, please try again.</string>
 </resources>
